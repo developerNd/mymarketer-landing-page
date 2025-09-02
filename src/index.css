@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Design System - Network Marketing Landing Page */
+
+@layer base {
+  :root {
+    /* Premium Color Palette */
+    --background: 220 30% 5%;
+    --foreground: 210 15% 95%;
+
+    --card: 220 25% 8%;
+    --card-foreground: 210 15% 95%;
+
+    --popover: 220 25% 8%;
+    --popover-foreground: 210 15% 95%;
+
+    /* Brand Colors - Deep Professional Blue with Gold Accents */
+    --primary: 218 80% 55%;
+    --primary-foreground: 210 15% 95%;
+    --primary-glow: 218 90% 65%;
+
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 210 15% 95%;
+
+    --muted: 220 20% 12%;
+    --muted-foreground: 215 15% 70%;
+
+    --accent: 45 95% 60%;
+    --accent-foreground: 220 30% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 15%;
+    --ring: 218 80% 55%;
+
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(218 80% 55%), hsl(218 90% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 30% 5%) 0%, hsl(220 25% 8%) 50%, hsl(218 80% 15%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220 25% 8% / 0.8), hsl(220 20% 12% / 0.6));
+    --gradient-accent: linear-gradient(135deg, hsl(45 95% 60%), hsl(35 95% 70%));
+    
+    /* Glass Effects */
+    --glass-bg: hsl(220 25% 8% / 0.7);
+    --glass-border: hsl(210 15% 95% / 0.1);
+    
+    /* Shadows */
+    --shadow-elegant: 0 20px 40px -12px hsl(220 30% 5% / 0.4);
+    --shadow-glow: 0 0 40px hsl(218 80% 55% / 0.3);
+    --shadow-accent: 0 10px 30px -10px hsl(45 95% 60% / 0.4);
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .light {
+    --background: 210 15% 97%;
+    --foreground: 220 30% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 10%;
+    --primary: 218 80% 55%;
+    --secondary: 210 15% 92%;
+    --muted: 210 15% 90%;
+    --accent: 45 95% 60%;
+    --border: 210 15% 85%;
+    --input: 210 15% 90%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans overflow-x-hidden;
+    background: var(--gradient-hero);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Premium Glass Effects */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+  }
+
+  /* Premium Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-accent-text {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Premium Shadows */
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-accent {
+    box-shadow: var(--shadow-accent);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 20px hsl(218 80% 55% / 0.3); }
+  100% { box-shadow: 0 0 40px hsl(218 80% 55% / 0.6); }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
