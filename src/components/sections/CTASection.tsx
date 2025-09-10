@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/premium-button';
 import { AnimatedSection } from '@/components/ui/animated-section';
 import { ArrowRight, Clock, Zap } from 'lucide-react';
+import { trackLead } from '@/lib/facebook-tracking';
 
 export const CTASection = () => {
   return (
@@ -56,7 +57,25 @@ export const CTASection = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-                <Button variant="hero" size="xl" className="group animate-glow">
+                <Button 
+                  variant="hero" 
+                  size="xl" 
+                  className="group animate-glow"
+                  onClick={() => {
+                    // Track lead conversion
+                    trackLead(
+                      {}, // user data (can be filled from form)
+                      {
+                        content_name: 'Build My Team CTA',
+                        content_category: 'Network Marketing',
+                        value: 0 // or your offer value
+                      }
+                    );
+                    
+                    // Add your redirect logic here
+                    // window.location.href = 'your-signup-page';
+                  }}
+                >
                   🔥 Yes! I'm Ready to Build My Team
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>

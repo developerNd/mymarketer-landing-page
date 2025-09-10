@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/premium-button';
 import { AnimatedSection } from '@/components/ui/animated-section';
 import { ArrowRight, Users, TrendingUp } from 'lucide-react';
+import { trackLead } from '@/lib/facebook-tracking';
 import heroImage from '@/assets/hero-team.jpg';
 
 export const HeroSection = () => {
@@ -42,11 +43,40 @@ export const HeroSection = () => {
 
             <AnimatedSection animation="fade-up" delay={600}>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="hero" size="xl" className="group">
+                <Button 
+                  variant="hero" 
+                  size="xl" 
+                  className="group"
+                  onClick={() => {
+                    trackLead(
+                      {},
+                      {
+                        content_name: 'Hero CTA - Build My Team',
+                        content_category: 'Network Marketing',
+                        value: 0
+                      }
+                    );
+                    // Add your redirect logic here
+                  }}
+                >
                   Yes! I'm Ready to Build My Team
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button variant="premium" size="xl">
+                <Button 
+                  variant="premium" 
+                  size="xl"
+                  onClick={() => {
+                    trackLead(
+                      {},
+                      {
+                        content_name: 'Hero CTA - Learn More',
+                        content_category: 'Network Marketing',
+                        value: 0
+                      }
+                    );
+                    // Add your redirect logic here
+                  }}
+                >
                   Learn More
                 </Button>
               </div>
