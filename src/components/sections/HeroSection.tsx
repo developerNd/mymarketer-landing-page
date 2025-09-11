@@ -56,7 +56,7 @@ export const HeroSection = () => {
                         value: 0
                       }
                     );
-                    // Add your redirect logic here
+                    window.location.href = 'https://rzp.io/rzp/u2YpQe7';
                   }}
                 >
                   Yes! I'm Ready to Build My Team

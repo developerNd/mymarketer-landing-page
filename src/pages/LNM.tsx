@@ -8,7 +8,7 @@ import { AuthoritySection } from '@/components/sections/AuthoritySection';
 import { CTASection } from '@/components/sections/CTASection';
 import { MobileStickyCTA } from '@/components/ui/mobile-sticky-cta';
 
-const Index = () => {
+const LNM = () => {
   return (
     <main className="min-h-screen">
       <HeroSection />
@@ -23,4 +23,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default LNM;
