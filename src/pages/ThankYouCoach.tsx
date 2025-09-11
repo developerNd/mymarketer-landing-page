@@ -4,11 +4,7 @@ import { AnimatedSection } from '@/components/ui/animated-section';
 import { CheckCircle, Calendar, Clock, Users, Star } from 'lucide-react';
 
 const ThankYouCoach = () => {
-  const handleYesClick = () => {
-    window.open('https://tool.aiwhatsapp.in/calender/329/3/45%20min', '_blank');
-  };
-
-  const handleNoClick = () => {
+  const handleBookMeeting = () => {
     window.open('https://tool.aiwhatsapp.in/calender/329/565/30%20min', '_blank');
   };
 
@@ -69,7 +65,7 @@ const ThankYouCoach = () => {
                     variant="hero" 
                     size="xl" 
                     className="group min-w-[250px]"
-                    onClick={handleYesClick}
+                    onClick={handleBookMeeting}
                   >
                     <Calendar className="mr-2 w-5 h-5" />
                     Book Now
