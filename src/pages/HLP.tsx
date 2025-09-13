@@ -1,25 +1,29 @@
 import React from 'react';
-import { HeroSection } from '@/components/sections/HeroSection';
-import { ProblemSection } from '@/components/sections/ProblemSection';
-import { SolutionSection } from '@/components/sections/SolutionSection';
-import { SystemSection } from '@/components/sections/SystemSection';
-import { TimelineSection } from '@/components/sections/TimelineSection';
-import { AuthoritySection } from '@/components/sections/AuthoritySection';
-import { CTASection } from '@/components/sections/CTASection';
-import { MobileStickyCTA } from '@/components/ui/mobile-sticky-cta';
+import {
+  HeroSection,
+  VideoSection,
+  AgendaSection,
+  ResultsSection,
+  WhyWorksSection,
+  BonusesSection,
+  FinalCTASection,
+  BottomNav
+} from '@/components/hlm';
 
 const HLP = () => {
   return (
-    <main className="min-h-screen">
-      <HeroSection />
-      <ProblemSection />
-      <SolutionSection />
-      <SystemSection />
-      <TimelineSection />
-      <AuthoritySection />
-      <CTASection />
-      <MobileStickyCTA />
-    </main>
+    <div className="hlm-theme">
+      <main className="min-h-screen pb-16" style={{ background: 'var(--gradient-hero)' }}>
+        <HeroSection />
+        <VideoSection />
+        <AgendaSection />
+        <ResultsSection />
+        <WhyWorksSection />
+        <BonusesSection />
+        <FinalCTASection />
+        <BottomNav />
+      </main>
+    </div>
   );
 };
 
