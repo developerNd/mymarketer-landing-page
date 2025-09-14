@@ -9,7 +9,7 @@ const ThankYouCoach = () => {
   };
 
   const handleNoClick = () => {
-    window.open('https://tool.aiwhatsapp.in/calender/6235/827/40%20min', '_blank');
+    window.open('https://tool.aiwhatsapp.in/calender/329/565/30%20min', '_blank');
   };
 
   return (
