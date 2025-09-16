@@ -1,22 +1,20 @@
-# Welcome to your Lovable project
+# MyMarketer - Pitch Deck Booster
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/36c0b700-7895-43c8-9193-77b97191feae
+**URL**: https://mymarketer.in
+
+## About MyMarketer
+
+MyMarketer is a comprehensive network marketing solution platform that helps entrepreneurs build successful teams using proven digital strategies and attraction-based marketing techniques.
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/36c0b700-7895-43c8-9193-77b97191feae) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+You can work locally using your own IDE by cloning this repo and making changes.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -62,12 +60,16 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/36c0b700-7895-43c8-9193-77b97191feae) and click on Share -> Publish.
+This project can be deployed to any hosting platform that supports React applications:
 
-## Can I connect a custom domain to my Lovable project?
+- **Vercel**: Connect your GitHub repository and deploy automatically
+- **Netlify**: Drag and drop the build folder or connect via Git
+- **AWS S3 + CloudFront**: Upload the build files to S3 and configure CloudFront
+- **GitHub Pages**: Use GitHub Actions to build and deploy
 
-Yes, you can!
+## Deployment Steps
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. Build the project: `npm run build`
+2. Upload the `dist` folder contents to your hosting platform
+3. Configure your domain to point to the hosting platform
+4. Set up SSL certificate for HTTPS
