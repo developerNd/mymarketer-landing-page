@@ -456,6 +456,11 @@
   color: hsl(var(--nm-primary));
 }
 
+/* Background utilities for bottom nav */
+.nm-bg-muted {
+  background-color: hsl(var(--nm-muted));
+}
+
 /* Gradient Backgrounds */
 .nm-gradient-primary {
   background: var(--nm-gradient-primary);

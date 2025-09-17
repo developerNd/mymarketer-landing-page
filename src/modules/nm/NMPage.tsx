@@ -1,6 +1,7 @@
 import './styles/nm-theme.css';
 import { Card } from "@/components/ui/card";
 import { NMButton } from "./components/NMButton";
+import NMBottomNav from "./components/NMBottomNav";
 import { CheckCircle, Zap, Target, TrendingUp, Users, Rocket, Clock, Star, ArrowRight, Play } from "lucide-react";
 import heroImage from "./assets/hero-marketer.jpg";
 import teamImage from "./assets/team-building.jpg";
@@ -8,7 +9,7 @@ import automationImage from "./assets/automation-system.jpg";
 
 const NMPage = () => {
   return (
-    <div className="nm-module min-h-screen nm-bg-background nm-text-foreground overflow-x-hidden">
+    <div className="nm-module min-h-screen nm-bg-background nm-text-foreground overflow-x-hidden pb-20">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-0 sm:px-6 lg:px-8 nm-gradient-hero">
         <div className="absolute inset-0 bg-gradient-to-br from-nm-bg-background via-nm-bg-background-secondary to-nm-bg-background-tertiary" />
@@ -386,6 +387,9 @@ const NMPage = () => {
         
         <div className="absolute bottom-0 left-0 w-full h-16 sm:h-24 lg:h-32 bg-gradient-to-t from-nm-bg-background to-transparent" />
       </section>
+      
+      {/* Bottom Navigation */}
+      <NMBottomNav />
     </div>
   );
 };
