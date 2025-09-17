@@ -26,6 +26,7 @@ const NMBottomNav = () => {
               variant="hero"
               size="sm" 
               className="font-bold px-6 py-2 rounded-lg text-sm"
+              href="https://rzp.io/rzp/u2YpQe7"
             >
               🔥 ENROLL NOW
             </NMButton>

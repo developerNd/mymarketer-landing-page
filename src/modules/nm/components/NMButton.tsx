@@ -39,15 +39,27 @@ export interface NMButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof nmButtonVariants> {
   asChild?: boolean
+  href?: string
 }
 
 const NMButton = React.forwardRef<HTMLButtonElement, NMButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, href, onClick, ...props }, ref) => {
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (href) {
+        e.preventDefault()
+        window.open(href, '_blank', 'noopener,noreferrer')
+      }
+      if (onClick) {
+        onClick(e)
+      }
+    }
+
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
         className={cn(nmButtonVariants({ variant, size, className }))}
         ref={ref}
+        onClick={handleClick}
         {...props}
       />
     )

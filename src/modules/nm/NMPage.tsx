@@ -34,7 +34,7 @@ const NMPage = () => {
               <br />❌ बिना दोस्तों और Family के पीछे भागे।
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-              <NMButton variant="hero" size="xxl" className="group text-sm sm:text-base lg:text-lg">
+              <NMButton variant="hero" size="xxl" className="group text-sm sm:text-base lg:text-lg" href="https://rzp.io/rzp/u2YpQe7">
                 <Play className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 mr-2 group-hover:scale-110 transition-transform" />
                 Yes! I'm Ready to Build My Team
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -373,7 +373,7 @@ const NMPage = () => {
               कल के Leaders वही होते हैं जो Action लेते हैं आज।
             </p>
             
-            <NMButton variant="hero" size="xxl" className="animate-glow group w-full sm:w-auto">
+            <NMButton variant="hero" size="xxl" className="animate-glow group w-full sm:w-auto" href="https://rzp.io/rzp/u2YpQe7">
               <Rocket className="w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 mr-2 sm:mr-3 group-hover:scale-110 transition-transform" />
               <span className="text-xs sm:text-sm md:text-base lg:text-lg">🔥 Yes! I'm Ready to Build My Team</span>
               <ArrowRight className="w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 ml-2 sm:ml-3 group-hover:translate-x-2 transition-transform" />
