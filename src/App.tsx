@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import LNM from "./pages/LNM";
 import HLP from "./pages/HLP";
+import NM from "./pages/NM";
 import NotFound from "./pages/NotFound";
 import ThankYouCoach from "./pages/ThankYouCoach";
 import HLPThankYou from "./pages/HLPThankYou";
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/lnm" element={<LNM />} />
           <Route path="/hlp" element={<HLP />} />
           <Route path="/hlm" element={<HLP />} />
+          <Route path="/nm" element={<NM />} />
           <Route path="/thankyoucoach" element={<ThankYouCoach />} />
           <Route path="/hlpthankyou" element={<HLPThankYou />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

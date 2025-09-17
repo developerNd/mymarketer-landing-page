@@ -244,6 +244,123 @@
   .shadow-accent {
     box-shadow: var(--shadow-accent);
   }
+
+  /* Additional NM Page Styles */
+  /* .glass-card-strong {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card-strong:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .hover-lift {
+    transition: all 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  }
+
+  .gradient-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .bg-background-secondary {
+    background-color: hsl(220 20% 8%);
+  }
+
+  .bg-background-tertiary {
+    background-color: hsl(220 15% 6%);
+  }
+
+  .text-warning {
+    color: #f59e0b;
+  }
+
+  .text-success {
+    color: #10b981;
+  }
+
+  .text-destructive {
+    color: #ef4444;
+  }
+
+  .text-primary {
+    color: #3b82f6;
+  }
+
+  .text-muted-foreground {
+    color: hsl(215 15% 70%);
+  }
+
+  .bg-destructive\/20 {
+    background-color: rgba(239, 68, 68, 0.2);
+  }
+
+  .bg-warning\/20 {
+    background-color: rgba(245, 158, 11, 0.2);
+  }
+
+  .bg-primary\/20 {
+    background-color: rgba(59, 130, 246, 0.2);
+  }
+
+  .bg-success\/20 {
+    background-color: rgba(16, 185, 129, 0.2);
+  }
+
+  .bg-success\/10 {
+    background-color: rgba(16, 185, 129, 0.1);
+  } */
 }
 
 @keyframes float {
@@ -283,5 +400,12 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
