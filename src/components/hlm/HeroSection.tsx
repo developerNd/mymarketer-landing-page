@@ -68,7 +68,7 @@ const HeroSection = () => {
         </div>
 
         <div className="animate-slide-up" style={{ animationDelay: '0.8s' }}>
-          <Button size="lg" className="text-xl px-12 py-6 mb-8 btn-premium">
+          <Button size="lg" className="text-xl px-12 py-6 mb-8 btn-premium" onClick={() => window.open('https://rzp.io/rzp/AswNl79', '_blank', 'noopener,noreferrer')}>
             Watch Free Training Now
             <ArrowRight className="h-6 w-6 ml-2" />
           </Button>

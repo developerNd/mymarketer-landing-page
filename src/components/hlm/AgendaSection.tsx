@@ -78,7 +78,7 @@ const AgendaSection = () => {
               </p>
             </div>
             
-            <Button size="lg" className="text-lg md:text-xl px-8 md:px-12 py-4 md:py-6 mb-3 md:mb-4 w-full btn-premium">
+            <Button size="lg" className="text-lg md:text-xl px-8 md:px-12 py-4 md:py-6 mb-3 md:mb-4 w-full btn-premium" onClick={() => window.open('https://rzp.io/rzp/AswNl79', '_blank', 'noopener,noreferrer')}>
               Secure Your Spot Now
               <ArrowRight className="h-5 w-5 md:h-6 md:w-6 ml-2" />
             </Button>

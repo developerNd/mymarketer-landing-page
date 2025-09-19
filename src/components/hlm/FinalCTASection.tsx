@@ -27,7 +27,7 @@ const FinalCTASection = () => {
               🔥 Limited Seats Left – Enroll Now Before It's Gone!
             </p>
 
-            <Button variant="hero" size="lg" className="text-2xl px-16 py-8 mb-6 w-full md:w-auto animate-glow">
+            <Button variant="default" size="lg" className="text-2xl px-16 py-8 mb-6 w-full md:w-auto animate-glow" onClick={() => window.open('https://rzp.io/rzp/AswNl79', '_blank', 'noopener,noreferrer')}>
               🔴 ENROLL NOW
               <ArrowRight className="h-8 w-8 ml-3" />
             </Button>

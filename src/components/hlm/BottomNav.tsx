@@ -25,6 +25,7 @@ const BottomNav = () => {
             <Button 
               size="sm" 
               className="font-bold px-6 py-2 rounded-lg text-sm btn-premium"
+              onClick={() => window.open('https://rzp.io/rzp/AswNl79', '_blank', 'noopener,noreferrer')}
             >
               ENROLL NOW
             </Button>
