@@ -1,0 +1,9 @@
+export { default as HeroSection } from './HeroSection';
+export { default as StorySection } from './StorySection';
+export { default as PainSection } from './PainSection';
+export { default as BreakthroughSection } from './BreakthroughSection';
+export { default as TransformationSection } from './TransformationSection';
+export { default as OfferSection } from './OfferSection';
+export { default as TestimonialsSection } from './TestimonialsSection';
+export { default as GuaranteeSection } from './GuaranteeSection';
+export { default as FinalCTASection } from './FinalCTASection';
