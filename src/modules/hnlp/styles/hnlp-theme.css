@@ -977,3 +977,7 @@
 .hnlp-module .space-y-3 > * + * { margin-top: 0.75rem; }
 .hnlp-module .space-y-6 > * + * { margin-top: 1.5rem; }
 .hnlp-module .space-y-8 > * + * { margin-top: 2rem; }
+
+
+/* Additional padding utilities */
+.hnlp-module .pb-24 { padding-bottom: 6rem; }

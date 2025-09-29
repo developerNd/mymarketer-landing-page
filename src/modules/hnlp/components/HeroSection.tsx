@@ -51,7 +51,7 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="flex justify-center">
               <Button 
                 variant="cta" 
                 size="lg" 
@@ -60,9 +60,6 @@ const HeroSection = () => {
               >
                 <span className="hidden sm:inline">Join करो 21 Days Nutrition Knowledge Program अभी</span>
                 <span className="sm:hidden">Join 21 Days Program अभी</span>
-              </Button>
-              <Button variant="hero" size="lg" className="py-4 sm:py-6 px-6 sm:px-8">
-                Free Demo देखें
               </Button>
             </div>
 
