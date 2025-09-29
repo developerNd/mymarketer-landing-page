@@ -110,7 +110,12 @@ const GuaranteeSection = () => {
               इसीलिए हम आपको complete peace of mind दे रहे हैं। Try करके देखिए - अगर satisfied नहीं हैं तो पूरे पैसे वापस।
             </p>
             
-            <Button variant="cta" size="lg" className="text-lg sm:text-xl py-4 sm:py-6 px-8 sm:px-12">
+            <Button 
+              variant="cta" 
+              size="lg" 
+              className="text-lg sm:text-xl py-4 sm:py-6 px-8 sm:px-12"
+              onClick={() => window.open('https://rzp.io/rzp/NjZxFD7y', '_blank')}
+            >
               Start Your Risk-Free Journey Now
             </Button>
           </div>

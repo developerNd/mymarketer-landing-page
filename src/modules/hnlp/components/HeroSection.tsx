@@ -52,7 +52,12 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Button variant="cta" size="lg" className="text-lg sm:text-xl py-4 sm:py-6 px-6 sm:px-8">
+              <Button 
+                variant="cta" 
+                size="lg" 
+                className="text-lg sm:text-xl py-4 sm:py-6 px-6 sm:px-8"
+                onClick={() => window.open('https://rzp.io/rzp/NjZxFD7y', '_blank')}
+              >
                 <span className="hidden sm:inline">Join करो 21 Days Nutrition Knowledge Program अभी</span>
                 <span className="sm:hidden">Join 21 Days Program अभी</span>
               </Button>

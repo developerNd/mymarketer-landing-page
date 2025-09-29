@@ -140,7 +140,12 @@ const TransformationSection = () => {
               Clients को असली results मिलेंगे — क्योंकि आपको पता होगा उनके लिए क्या best है।
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Button variant="cta" size="lg" className="text-base sm:text-lg">
+              <Button 
+                variant="cta" 
+                size="lg" 
+                className="text-base sm:text-lg"
+                onClick={() => window.open('https://rzp.io/rzp/NjZxFD7y', '_blank')}
+              >
                 मुझे यह Transformation चाहिए
               </Button>
               <Button variant="hero" size="lg" className="text-base sm:text-lg">

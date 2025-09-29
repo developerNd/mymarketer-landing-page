@@ -5,7 +5,7 @@ import "@/modules/hnlp/styles/hnlp-theme.css";
 
 const HNLPThankYou = () => {
   const handleBookMeeting = () => {
-    window.open('https://tool.aiwhatsapp.in/calender/329/565/30%20min', '_blank');
+    window.open('https://tool.aiwhatsapp.in/calender/329/71/30%20min', '_blank');
   };
 
   return (

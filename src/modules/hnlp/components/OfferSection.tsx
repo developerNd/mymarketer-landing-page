@@ -110,7 +110,12 @@ const OfferSection = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
-                <Button variant="cta" size="lg" className="text-lg sm:text-xl py-6 sm:py-8 px-8 sm:px-12 animate-bounce">
+                <Button 
+                  variant="cta" 
+                  size="lg" 
+                  className="text-lg sm:text-xl py-6 sm:py-8 px-8 sm:px-12 animate-bounce"
+                  onClick={() => window.open('https://rzp.io/rzp/NjZxFD7y', '_blank')}
+                >
                   👉 Join the 21-Day Program Now
                 </Button>
                 <div className="text-center">
