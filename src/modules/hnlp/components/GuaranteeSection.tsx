@@ -33,13 +33,13 @@ const GuaranteeSection = () => {
               
               <div className="max-w-2xl mx-auto space-y-4 sm:space-y-6">
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                  अगर आपको program useful ना लगे,
+                  अगर आपको लगे कि MSR System आपके लिए काम नहीं कर रहा,
                 </p>
                 <p className="text-xl sm:text-2xl font-bold text-accent">
-                  पूरे पैसे वापस।
+                  तो 3 दिन के अंदर — पूरे पैसे वापस।
                 </p>
                 <p className="text-base sm:text-lg text-muted-foreground">
-                  No questions asked.
+                  💬 No questions asked. No hassle.
                 </p>
               </div>
 
@@ -67,7 +67,7 @@ const GuaranteeSection = () => {
                   Proven Results
                 </h4>
                 <p className="text-muted-foreground text-xs sm:text-sm">
-                  98% coaches देखते हैं immediate improvement in their confidence
+                  87% coaches ने देखा है instant growth — उनकी confidence और client conversion दोनों में।
                 </p>
               </div>
             </Card>
@@ -78,10 +78,10 @@ const GuaranteeSection = () => {
                   <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
                 </div>
                 <h4 className="text-base sm:text-lg font-bold text-foreground">
-                  Quality Content
+                  Quality System
                 </h4>
                 <p className="text-muted-foreground text-xs sm:text-sm">
-                  Professional nutritionists और successful coaches से बनाया गया
+                  System को बनाया गया है top marketers और successful wellness coaches की proven strategies से।
                 </p>
               </div>
             </Card>
@@ -95,7 +95,7 @@ const GuaranteeSection = () => {
                   Our Commitment
                 </h4>
                 <p className="text-muted-foreground text-xs sm:text-sm">
-                  हमारा goal है आपको successful बनाना, पैसे कमाना नहीं
+                  हमारा goal simple है — आपका business scale करना, सिर्फ Sevice बेचना नहीं।
                 </p>
               </div>
             </Card>
@@ -104,10 +104,11 @@ const GuaranteeSection = () => {
           {/* Final Assurance */}
           <div className="glass p-6 sm:p-8 lg:p-10 rounded-3xl border border-primary/30 text-center animate-slide-up">
             <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">
-              हमें पूरा confidence है कि यह program आपकी life change कर देगा
+              हमें पूरा भरोसा है कि यह MSR System आपकी life बदल देगा
             </h3>
             <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto">
-              इसीलिए हम आपको complete peace of mind दे रहे हैं। Try करके देखिए - अगर satisfied नहीं हैं तो पूरे पैसे वापस।
+              इसीलिए हम दे रहे हैं आपको complete peace of mind —
+              Try कीजिए, और अगर आपको growth या clarity महसूस नहीं होती, तो पूरे पैसे वापस।
             </p>
             
             <Button 
@@ -116,7 +117,7 @@ const GuaranteeSection = () => {
               className="text-lg sm:text-xl py-4 sm:py-6 px-8 sm:px-12"
               onClick={() => window.open('https://rzp.io/rzp/NjZxFD7y', '_blank')}
             >
-              Start Your Risk-Free Journey Now
+              🟡 Start Your Risk-Free MSR Journey Now
             </Button>
           </div>
         </div>

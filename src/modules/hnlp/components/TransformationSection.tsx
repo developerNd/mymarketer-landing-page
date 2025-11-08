@@ -8,23 +8,23 @@ const TransformationSection = () => {
   const benefits = [
     {
       icon: CheckCircle,
-      title: "Client doubt के साथ बैठे",
-      description: "शुरुआत में clients skeptical होते हैं"
+      title: "Clients full doubt में आते हैं",
+      description: "शुरुआत में उन्हें trust build करना मुश्किल लगता है।"
     },
     {
       icon: CheckCircle,
-      title: "आप unके body type explain करो",
-      description: "Science और logic के साथ confidence से"
+      title: "आप उन्हें System और Strategy explain करते हो",
+      description: "Marketing + Psychology के साथ confidence से।"
     },
     {
       icon: CheckCircle,
-      title: "वो सिर्फ हाँ में सिर हिलाएं",
-      description: "Trust automatically बन जाता है"
+      title: "वो खुद बोलते हैं — \"Yes, I want to start!\"",
+      description: "Trust automatically develop हो जाता है।"
     },
     {
       icon: CheckCircle,
-      title: "Deal close हो जाए बिना push किए",
-      description: "Natural selling process"
+      title: "Deal close होती है बिना push किए",
+      description: "Natural, effortless selling process बन जाता है।"
     }
   ];
 
@@ -48,7 +48,7 @@ const TransformationSection = () => {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8">
               <span className="text-gradient">सोचो आपके साथ क्या होगा</span>
               <br />
-              <span className="text-foreground">जब आपके पास knowledge होगी</span>
+              <span className="text-foreground">जब आपके पास MSR System होगा</span>
             </h2>
           </div>
 
@@ -56,7 +56,7 @@ const TransformationSection = () => {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 sm:mb-16">
             <div className="space-y-6 sm:space-y-8 animate-slide-up">
               <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
-                The Perfect Sales Process:
+                The Perfect Client Conversion Flow:
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
@@ -67,7 +67,7 @@ const TransformationSection = () => {
                     </div>
                     <div>
                       <h4 className="text-sm sm:text-base font-semibold text-foreground mb-1">
-                        {benefit.title}
+                        ✅ {benefit.title}
                       </h4>
                       <p className="text-xs sm:text-sm text-muted-foreground">
                         {benefit.description}
@@ -104,12 +104,12 @@ const TransformationSection = () => {
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-destructive/20 rounded-full flex items-center justify-center mx-auto">
                   <span className="text-xl sm:text-2xl">😔</span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-foreground">अभी आप</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-foreground">😩 अभी आप</h3>
                 <div className="space-y-2 sm:space-y-3 text-left">
-                  <p className="text-sm sm:text-base text-muted-foreground">• 2-3 clients struggle करके लाते हो</p>
-                  <p className="text-sm sm:text-base text-muted-foreground">• Clients को convince करना पड़ता है</p>
+                  <p className="text-sm sm:text-base text-muted-foreground">• हर महीने 2–3 clients लाने में struggle करते हैं</p>
+                  <p className="text-sm sm:text-base text-muted-foreground">• Clients को convince करने में बहुत time जाता है</p>
                   <p className="text-sm sm:text-base text-muted-foreground">• बार-बार follow up करना पड़ता है</p>
-                  <p className="text-sm sm:text-base text-muted-foreground">• कम income और frustration</p>
+                  <p className="text-sm sm:text-base text-muted-foreground">• Result? कम income + high frustration</p>
                 </div>
               </div>
             </Card>
@@ -119,12 +119,12 @@ const TransformationSection = () => {
                 <div className="w-12 h-12 sm:w-16 sm:h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto">
                   <span className="text-xl sm:text-2xl">🚀</span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-foreground">21 दिन बाद</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-foreground">🚀 30 दिन बाद</h3>
                 <div className="space-y-2 sm:space-y-3 text-left">
-                  <p className="text-sm sm:text-base text-accent font-medium">• 10-15 clients easily close करना</p>
-                  <p className="text-sm sm:text-base text-accent font-medium">• Clients आपसे guidance माँगना</p>
-                  <p className="text-sm sm:text-base text-accent font-medium">• Trust automatically बनना</p>
-                  <p className="text-sm sm:text-base text-accent font-medium">• 10x income growth</p>
+                  <p className="text-sm sm:text-base text-accent font-medium">• 10–15 clients easily close होते हैं</p>
+                  <p className="text-sm sm:text-base text-accent font-medium">• Clients खुद आपसे guidance मांगते हैं</p>
+                  <p className="text-sm sm:text-base text-accent font-medium">• Trust अपने आप बन जाता है</p>
+                  <p className="text-sm sm:text-base text-accent font-medium">• Income 10x, confidence 100x</p>
                 </div>
               </div>
             </Card>
@@ -134,10 +134,11 @@ const TransformationSection = () => {
           <div className="glass p-6 sm:p-8 lg:p-10 rounded-3xl border border-primary/30 text-center animate-slide-up">
             <Users className="w-16 h-16 sm:w-20 sm:h-20 text-primary mx-auto mb-4 sm:mb-6" />
             <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 sm:mb-6">
-              और सबसे बड़ा फायदा?
+              🧠 और सबसे बड़ा फायदा?
             </h3>
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-4 sm:mb-6 max-w-3xl mx-auto">
-              Clients को असली results मिलेंगे — क्योंकि आपको पता होगा उनके लिए क्या best है।
+              Clients को real transformation मिलेगा —
+              क्योंकि अब आप जानते होंगे कि उनके लिए क्या best strategy है।
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Button 
@@ -146,10 +147,10 @@ const TransformationSection = () => {
                 className="text-base sm:text-lg"
                 onClick={() => window.open('https://rzp.io/rzp/NjZxFD7y', '_blank')}
               >
-                मुझे यह Transformation चाहिए
+                🔸 मुझे यह Transformation चाहिए
               </Button>
               <Button variant="hero" size="lg" className="text-base sm:text-lg">
-                Success Stories देखें
+                🔸 Success Stories देखें
               </Button>
             </div>
           </div>

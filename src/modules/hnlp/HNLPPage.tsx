@@ -51,7 +51,7 @@ const HNLPPage = () => {
                 border-radius: 9999px;
                 display: inline-block;
               ">
-                21 Days Program
+                30 Days Program
               </div>
               <button 
                 onclick="window.open('https://rzp.io/rzp/NjZxFD7y', '_blank', 'noopener,noreferrer')"

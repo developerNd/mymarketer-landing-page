@@ -7,28 +7,33 @@ const OfferSection = () => {
   const modules = [
     {
       icon: BookOpen,
-      title: "Nutrition और body types का clear ज्ञान",
-      description: "Scientific approach से समझें कि कौन सा nutrition किस body type के लिए perfect है"
+      title: "Perfect Marketing System का Blueprint",
+      description: "Proven process जिससे qualified leads हर हफ्ते खुद आपके पास आएंगे।"
     },
     {
       icon: Users,
-      title: "Product logically explain करना",
-      description: "Confidence के साथ clients को बताएं कि कैसे और क्यों Herbalife products काम करते हैं"
+      title: "Client Psychology को समझना और decode करना",
+      description: "कैसे clients को emotionally connect करके instantly trust build किया जाता है।"
     },
     {
       icon: Target,
-      title: "पहले 5 minute में ही trust जीतना",
-      description: "First impression में ही client का भरोसा जीतने की techniques"
+      title: "First 5 Minute में ही Conversion Trigger करना",
+      description: "Powerful conversation flow जिससे client खुद बोले — \"I'm in!\""
     },
     {
       icon: CheckCircle,
-      title: "Real results देना clients को",
-      description: "Repeat sales और referrals के लिए guaranteed results देने की strategy"
+      title: "Magnetic Offer Presentation बनाना",
+      description: "कैसे अपने product या plan को ऐसे present करें कि client value feel करे, price नहीं।"
     },
     {
       icon: Star,
-      title: "Deal close करना बिना chase किए",
-      description: "Natural selling process जो clients को खुद से convince कर दे"
+      title: "Follow-ups के बिना Deal Close करना",
+      description: "Natural closing framework जिससे clients खुद action लेते हैं।"
+    },
+    {
+      icon: Star,
+      title: "Repeat Clients और Referral Network बनाना",
+      description: "Retention strategy जो आपके business को stable और scalable दोनों बनाती है।"
     }
   ];
 
@@ -44,12 +49,12 @@ const OfferSection = () => {
               The Ultimate Solution
             </Badge>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8">
-              <span className="text-gradient">21 Days Nutrition</span>
+              <span className="text-gradient">30 Days MSR Business</span>
               <br />
-              <span className="text-foreground">Knowledge Program</span>
+              <span className="text-foreground">Growth Program</span>
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
-              सिर्फ 21 दिन में आप सीखोगे वो सब जो एक successful Herbalife Coach बनने के लिए जरूरी है।
+              सिर्फ 30 दिनों में सीखिए वो सब जो एक successful Wellness Coach को Next Level Qualify करने के लिए चाहिए।
             </p>
           </div>
 
@@ -57,17 +62,17 @@ const OfferSection = () => {
           <div className="glass p-6 sm:p-8 rounded-2xl border border-accent/30 mb-12 sm:mb-16 text-center animate-slide-up">
             <Clock className="w-10 h-10 sm:w-12 sm:h-12 text-accent mx-auto mb-3 sm:mb-4" />
             <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 sm:mb-4">
-              यह कोई normal sales course नहीं है।
+              ⏳ यह कोई normal Zoom Call नहीं है।
             </h3>
             <p className="text-lg sm:text-xl text-accent-gradient font-semibold">
-              यह है असली nutrition knowledge जो आपके words को power देता है।
+              यह है असली Marketing + Sales Revolution System (MSR) जो आपके words, presentation और process को power देता है।
             </p>
           </div>
 
           {/* What You'll Learn */}
           <div className="mb-12 sm:mb-16">
             <h3 className="text-2xl sm:text-3xl font-bold text-center text-foreground mb-8 sm:mb-12 animate-slide-up">
-              सिर्फ 21 दिन में आप सीखोगे:
+              सिर्फ 30 दिन में आप सीखोगे:
             </h3>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -97,15 +102,15 @@ const OfferSection = () => {
           <div className="glass p-6 sm:p-8 lg:p-12 rounded-3xl border-2 border-accent/30 text-center mb-12 sm:mb-16 animate-slide-up animate-glow">
             <div className="max-w-3xl mx-auto space-y-6 sm:space-y-8">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 sm:mb-6">
-                Ready to Transform Your Herbalife Business?
+                Ready to Transform Your Wellness Business?
               </h3>
               
               <div className="space-y-3 sm:space-y-4">
                 <p className="text-lg sm:text-xl text-muted-foreground">
-                  अब और clients lose मत करो, lack of knowledge की वजह से।
+                  अब और clients lose मत करो, wrong strategy या lack of system की वजह से।
                 </p>
                 <p className="text-xl sm:text-2xl font-bold text-accent">
-                  Time आ गया है, Herbalife industry में एक respected और trusted coach बनने का।
+                  Time आ गया है — Wellness industry में एक respected और high-earning coach बनने का।
                 </p>
               </div>
 
@@ -116,11 +121,11 @@ const OfferSection = () => {
                   className="text-lg sm:text-xl py-6 sm:py-8 px-8 sm:px-12 animate-bounce"
                   onClick={() => window.open('https://rzp.io/rzp/NjZxFD7y', '_blank')}
                 >
-                  👉 Join the 21-Day Program Now
+                  👉 Join the 30-Day MSR System Now
                 </Button>
                 <div className="text-center">
                   <div className="text-xs sm:text-sm text-muted-foreground">Lifetime Access</div>
-                  <div className="text-base sm:text-lg font-bold text-accent">+ Bonus Materials</div>
+                  <div className="text-base sm:text-lg font-bold text-accent">+ Exclusive Bonus Materials</div>
                 </div>
               </div>
             </div>
@@ -137,7 +142,7 @@ const OfferSection = () => {
                   ⚡ Seats limited हैं
                 </h4>
                 <p className="text-sm sm:text-base text-muted-foreground">
-                  सिर्फ serious Herbalife Coaches के लिए
+                  सिर्फ serious Wellness Coaches के लिए जो growth के लिए committed हैं।
                 </p>
               </div>
             </Card>
@@ -151,7 +156,7 @@ const OfferSection = () => {
                   ⏰ Delay मत करो
                 </h4>
                 <p className="text-sm sm:text-base text-muted-foreground">
-                  हर दिन का wait एक lost client है
+                  हर दिन का wait मतलब एक lost client और एक missed income opportunity।
                 </p>
               </div>
             </Card>

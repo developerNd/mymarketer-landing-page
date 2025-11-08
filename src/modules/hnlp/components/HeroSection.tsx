@@ -20,21 +20,21 @@ const HeroSection = () => {
           <div className="space-y-6 sm:space-y-8 animate-slide-up">
             <Badge className="bg-accent/20 text-accent border-accent/30 text-xs sm:text-sm font-medium px-3 sm:px-4 py-2">
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
-              <span className="hidden sm:inline">21 दिन में Complete Transformation</span>
-              <span className="sm:hidden">21 दिन Transformation</span>
+              <span className="hidden sm:inline">30 दिन में Complete Transformation</span>
+              <span className="sm:hidden">30 दिन Transformation</span>
             </Badge>
 
             <div className="space-y-4 sm:space-y-6">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-gradient">Kyun 90% Herbalife Coaches</span>
+                <span className="text-gradient">Kyun 90% Wellness Coaches</span>
                 <br />
                 <span className="text-foreground">Deal Close नही कर पाते??</span>
               </h1>
 
               <div className="glass p-4 sm:p-6 rounded-2xl border border-accent/20">
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                  <span className="text-accent font-semibold">सिर्फ 21 दिन…</span> और clients आपको 
-                  <span className="text-primary font-semibold"> 'please मुझे guide करो'</span> कहेंगे।
+                  <span className="text-accent font-semibold">सिर्फ 30 दिन…</span> और clients आपको 
+                  <span className="text-primary font-semibold"> 'please मुझे Join करना है'</span> कहेंगे।
                 </p>
               </div>
 
@@ -46,7 +46,7 @@ const HeroSection = () => {
                   Problem है एक चीज़ की: <span className="text-accent">Knowledge</span>
                 </p>
                 <p className="text-base sm:text-lg text-primary-glow font-medium">
-                  और याद रखो — जिसके पास असली knowledge होता है, उसके सामने सब head bow down करते हैं।
+                  और याद रखो — अगर आपके 30 customers 30 days में बनना start हो गए, आपके लिए कोई भी Level Qualify करना मुश्किल नहीं है।
                 </p>
               </div>
             </div>
@@ -58,8 +58,8 @@ const HeroSection = () => {
                 className="text-lg sm:text-xl py-4 sm:py-6 px-6 sm:px-8"
                 onClick={() => window.open('https://rzp.io/rzp/NjZxFD7y', '_blank')}
               >
-                <span className="hidden sm:inline">Join करो 21 Days Nutrition Knowledge Program अभी</span>
-                <span className="sm:hidden">Join 21 Days Program अभी</span>
+                <span className="hidden sm:inline">Book Your 30-Day Game-Changing Strategy Call</span>
+                <span className="sm:hidden">Book Strategy Call</span>
               </Button>
             </div>
 
@@ -99,7 +99,7 @@ const HeroSection = () => {
                     <span className="text-accent font-bold text-sm sm:text-base">★</span>
                   </div>
                   <div>
-                    <div className="text-xs sm:text-sm font-semibold text-foreground">"10x growth in just 21 days!"</div>
+                    <div className="text-xs sm:text-sm font-semibold text-foreground">"10x growth in just 30 days!"</div>
                     <div className="text-xs text-muted-foreground">Mumbai Coach</div>
                   </div>
                 </div>

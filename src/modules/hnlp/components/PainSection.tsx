@@ -5,14 +5,14 @@ import { XCircle, Users, Brain, Target } from "lucide-react";
 const PainSection = () => {
   const painPoints = [
     {
+      icon: Brain,
+      title: "Quality Leads 'नहीं आ रही है'",
+      description: "Offline Activity, Boost, FB Paid Marketing सब करके देख लिया।"
+    },
+    {
       icon: Users,
       title: "बार-बार chase करना पड़ता है",
       description: "Clients को repeatedly follow up करना पड़ता है क्योंकि trust नहीं बन पाता।"
-    },
-    {
-      icon: Brain,
-      title: "Clients 'सोच कर बताते हैं'",
-      description: "Knowledge की कमी से clients में confidence नहीं आता और वो decisions delay करते हैं।"
     },
     {
       icon: Target,
@@ -45,7 +45,7 @@ const PainSection = () => {
                   <span className="text-xl sm:text-2xl">❌</span>
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-foreground">
-                  Log Herbalife product पे trust करके नहीं खरीदते।
+                  लोग  Wellness product पे trust करके नहीं खरीदते।
                 </h3>
               </div>
             </Card>
@@ -56,16 +56,16 @@ const PainSection = () => {
                   <span className="text-xl sm:text-2xl">✅</span>
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-foreground">
-                  Wo आपकी knowledge और confidence पे trust करके खरीदते हैं।
+                  Wo आपकी Authority और confidence पे trust करके खरीदते हैं।
                 </h3>
               </div>
             </Card>
           </div>
 
-          {/* The Knowledge Factor */}
+          {/* The MSR System Factor */}
           <div className="glass p-6 sm:p-8 lg:p-10 rounded-3xl border border-accent/30 mb-12 sm:mb-16 animate-slide-up">
             <h3 className="text-2xl sm:text-3xl font-bold text-center text-foreground mb-6 sm:mb-8">
-              अगर आप logically explain कर पाओ:
+              अगर आपके पास Top 1% Coaches का MSR SYSTEM हो तो:
             </h3>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -74,7 +74,7 @@ const PainSection = () => {
                   <Brain className="w-8 h-8 sm:w-10 sm:h-10 text-primary" />
                 </div>
                 <h4 className="text-base sm:text-lg font-semibold text-foreground">
-                  क्यों यह nutrition work करता है
+                  Marketing की Exact Strategy आपके पास होगी
                 </h4>
               </div>
               
@@ -83,7 +83,7 @@ const PainSection = () => {
                   <Users className="w-8 h-8 sm:w-10 sm:h-10 text-accent" />
                 </div>
                 <h4 className="text-base sm:text-lg font-semibold text-foreground">
-                  कैसे अलग-अलग body types पे adapt होता है
+                  30 Days 30 Closing Sales Framework आपके पास होगा
                 </h4>
               </div>
               
@@ -92,14 +92,14 @@ const PainSection = () => {
                   <Target className="w-8 h-8 sm:w-10 sm:h-10 text-primary-glow" />
                 </div>
                 <h4 className="text-base sm:text-lg font-semibold text-foreground">
-                  कितने दिनों में Result मिलेगा
+                  Client Retantion Blueprint आपके पास होगा
                 </h4>
               </div>
             </div>
 
             <div className="text-center mt-6 sm:mt-8">
               <p className="text-xl sm:text-2xl font-bold text-accent">
-                ...तो client automatically हाँ बोलेंगे।
+                ...तो 90 Days में आपका Next Level Qualify होगा।
               </p>
             </div>
           </div>
@@ -107,7 +107,7 @@ const PainSection = () => {
           {/* Pain Points Grid */}
           <div className="space-y-4 sm:space-y-6 animate-slide-up">
             <h3 className="text-2xl sm:text-3xl font-bold text-center text-foreground mb-6 sm:mb-8">
-              और अगर knowledge नहीं है?
+              और अगर MSR SYSTEM नहीं है?
             </h3>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

@@ -5,25 +5,25 @@ import { Star, Quote, TrendingUp, Users } from "lucide-react";
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      quote: "पहले मैं एक महीने में 2 deals भी close नहीं कर पाता था। अब confidently 8-10 clients close कर रहा हूं।",
-      author: "Raj Sharma",
-      location: "Mumbai Coach",
+      quote: "पहले मैं हर महीने सिर्फ 2 clients से बात करता था, अब 40–69 qualified leads खुद contact करते हैं।",
+      author: "Ravi Verma",
+      location: "Wellness Coach – Ahmedabad",
       rating: 5,
-      result: "5x Sales Growth"
+      result: "25x Lead Growth"
     },
     {
-      quote: "जब clients tough सवाल पूछते थे तो मैं blank हो जाता था। अब clear answer देता हूं और deal close easily होती है।",
-      author: "Priya Singh", 
-      location: "Delhi Coach",
+      quote: "पहले sales call में nervous हो जाता था, अब strategy और script से हर call पर clarity रहती है।",
+      author: "Neha Thakur", 
+      location: "Wellness Coach – Indore",
       rating: 5,
-      result: "Instant Trust Building"
+      result: "Confidence & Conversion Boost"
     },
     {
-      quote: "Knowledge के बाद confidence आया, confidence के बाद clients का trust। अब मुझसे लोग guidance मांगते हैं।",
-      author: "Amit Patel",
-      location: "Pune Coach", 
+      quote: "MSR System सीखने के बाद clients खुद मुझसे guidance मांगते हैं — अब मैं अपनी team का top closer हूँ।",
+      author: "Arjun Mehta",
+      location: "Wellness Coach – Bangalore", 
       rating: 5,
-      result: "Authority Status"
+      result: "Authority Positioning"
     }
   ];
 
@@ -40,7 +40,7 @@ const TestimonialsSection = () => {
     },
     {
       icon: Star,
-      number: "98%",
+      number: "87%",
       label: "Success Rate"
     }
   ];
@@ -136,14 +136,14 @@ const TestimonialsSection = () => {
               आपकी भी यही story बन सकती है!
             </h3>
             <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto">
-              सिर्फ 21 दिन बाद आप भी confident होकर clients को science और logic से convince कर पाएंगे। 
-              आपके success की story भी यहाँ featured होगी।
+              सिर्फ 30 दिन बाद, आप भी confidently clients को science, psychology और logic से convert कर पाएंगे।
+              आपकी success story भी इसी page पर feature होगी 🚀
             </p>
             
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto">
               <div className="text-center space-y-1 sm:space-y-2">
-                <div className="text-xl sm:text-2xl font-bold text-accent">21 Days</div>
-                <div className="text-sm sm:text-base text-muted-foreground">Program Duration</div>
+                <div className="text-xl sm:text-2xl font-bold text-accent">30 Days</div>
+                <div className="text-sm sm:text-base text-muted-foreground">System Creation Duration</div>
               </div>
               <div className="text-center space-y-1 sm:space-y-2">
                 <div className="text-xl sm:text-2xl font-bold text-accent">Lifetime</div>
