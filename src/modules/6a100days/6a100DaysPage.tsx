@@ -5,7 +5,17 @@ const SixtyDaysPage = () => {
     const [modalActive, setModalActive] = useState(false);
     const [slideIndex, setSlideIndex] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+        city: ''
+    });
     const trackRef = useRef<HTMLDivElement>(null);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
 
     const testimonials = [
         { initials: 'RM', name: 'Rohit Mehta', issue: 'Digestive Issues', review: '“I stopped masking symptoms and finally understood what my body needed. Digestion feels lighter now.”' },
@@ -38,25 +48,34 @@ const SixtyDaysPage = () => {
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsLoading(true);
-        const formData = new FormData(e.currentTarget);
-        const data = Object.fromEntries(formData.entries());
+
+        const payload = {
+            name: formData.name,
+            FullName: formData.name, // Alias for some systems
+            phone: formData.phone,
+            MobileNumber: formData.phone, // Alias for some systems
+            phone_number: formData.phone, // Alias for some systems
+            city: formData.city,
+            source: '6a100days'
+        };
+
+        console.log("Submitting lead data to webhook:", payload);
 
         // Artificial delay of 1.5s to ensure loader is visible
         const minDelay = new Promise(resolve => setTimeout(resolve, 1500));
 
         try {
-            // Send data to webhook
+            // Send data as JSON
             const webhookPromise = fetch("https://tool.aiwhatsapp.in/webhook/329/21", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
+                body: JSON.stringify(payload),
             });
 
             // Wait for both webhook and min delay
             await Promise.all([webhookPromise, minDelay]);
         } catch (error) {
             console.error("Error sending to webhook:", error);
-            // Even if webhook fails, wait for delay to be consistent
             await minDelay;
         }
 
@@ -267,15 +286,37 @@ const SixtyDaysPage = () => {
                     <form onSubmit={handleFormSubmit}>
                         <div className="input-box">
                             <i className="fa-solid fa-user"></i>
-                            <input type="text" name="name" placeholder="Full Name" required />
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Full Name"
+                                required
+                                value={formData.name}
+                                onChange={handleInputChange}
+                            />
                         </div>
                         <div className="input-box">
                             <i className="fa-solid fa-phone"></i>
-                            <input type="tel" name="phone" placeholder="10-digit Mobile Number" required pattern="[0-9]{10}" />
+                            <input
+                                type="tel"
+                                name="phone"
+                                placeholder="10-digit Mobile Number"
+                                required
+                                pattern="[0-9]{10}"
+                                value={formData.phone}
+                                onChange={handleInputChange}
+                            />
                         </div>
                         <div className="input-box">
                             <i className="fa-solid fa-location-dot"></i>
-                            <input type="text" name="city" placeholder="City" required />
+                            <input
+                                type="text"
+                                name="city"
+                                placeholder="City"
+                                required
+                                value={formData.city}
+                                onChange={handleInputChange}
+                            />
                         </div>
                         <button type="submit" className="continue-btn" disabled={isLoading}>
                             {isLoading ? <div className="btn-loader"></div> : "Continue"}
