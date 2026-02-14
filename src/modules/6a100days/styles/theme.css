@@ -34,9 +34,21 @@
 
 .sixty-days-module .hero h1 {
     font-size: 44px;
+    color: #ffffff;
+    margin: 0 auto 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    max-width: 750px;
+    width: fit-content;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3b82f6 100%);
+    padding: 12px 35px;
+    border-radius: 50px;
     font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 25px rgba(30, 60, 114, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
 }
 
 .sixty-days-module .hero h2 {
@@ -44,6 +56,7 @@
     font-weight: 700;
     background: linear-gradient(90deg, #2563eb, #3b82f6);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0;
     white-space: pre-wrap;
@@ -700,6 +713,7 @@
 .sixty-days-module .csc-premium-title span {
     background: linear-gradient(90deg, #22c55e, #3b82f6);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -954,38 +968,175 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-    .sixty-days-module .hero-subtitle-div {
-        margin: 15px 0;
+@media (max-width: 1000px) {
+    .sixty-days-module .heal-wrapper-x2 {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
     }
 
-    .sixty-days-module .hero h2 {
-        font-size: 18px;
+    .sixty-days-module .heal-left-x2,
+    .sixty-days-module .heal-right-x2 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .sixty-days-module .roadmap-grid-z1 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .sixty-days-module {
+        background-size: 24px 24px;
+    }
+
+    .sixty-days-module .hero {
+        padding-top: 30px;
     }
 
     .sixty-days-module .hero h1 {
-        font-size: 27px;
+        font-size: 22px;
+        line-height: 1.3;
+        padding: 8px 20px;
+        max-width: 100%;
+    }
+
+    .sixty-days-module .hero h2 {
+        font-size: 13px;
+    }
+
+    .sixty-days-module .hero p {
+        font-size: 12px;
+    }
+
+    .sixty-days-module .hero-subtitle-div {
+        margin: 15px 0;
+        margin-bottom: 30px;
     }
 
     .sixty-days-module .tags {
         grid-template-columns: 1fr 1fr;
+        row-gap: 12px;
     }
 
     .sixty-days-module .tag {
+        font-size: 11px;
+        padding: 8px 12px;
         min-width: unset;
     }
 
+    .sixty-days-module .tag .icon {
+        width: 30px;
+        font-size: 13px;
+    }
+
     .sixty-days-module .video-wrapper {
-        width: 100%;
-        aspect-ratio: 16/9;
+        width: 260px;
+        margin: auto;
+    }
+
+    .sixty-days-module .btn-group {
+        margin-top: 40px;
+    }
+
+    .sixty-days-module .btn {
+        font-size: 20px;
+        padding: 12px 17px;
+    }
+
+    .sixty-days-module .section2 {
+        padding: 50px 16px 50px 16px;
+    }
+
+    .sixty-days-module .section2 h2 {
+        font-size: 20px;
+        line-height: 1.4;
     }
 
     .sixty-days-module .cards {
         grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .sixty-days-module .card {
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    .sixty-days-module .card .icon {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .sixty-days-module .risk-heading-x2 {
+        font-size: 32px;
+    }
+
+    .sixty-days-module .risk-card-x2 {
+        padding: 40px 10px;
+    }
+
+    .sixty-days-module .science-sub-div {
+        text-align: left;
+    }
+
+    .sixty-days-module .science-sub {
+        font-size: 15px;
+    }
+
+    .sixty-days-module .science-note {
+        font-size: 15px;
+    }
+
+    .sixty-days-module .science-benefits {
+        width: 100%;
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+        text-align: left;
     }
 
     .sixty-days-module .science-card {
         width: 100%;
+        padding: 20px 15px;
+    }
+
+    .sixty-days-module .health-title-x9 {
+        font-size: 30px;
+    }
+
+    .sixty-days-module .csc-premium-highlight {
+        padding: 40px 20px;
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .sixty-days-module .csc-premium-title {
+        font-size: 24px;
+    }
+
+    .sixty-days-module .csc-premium-sub {
+        font-size: 18px;
+    }
+
+    .sixty-days-module .csc-loss-lines {
+        text-align: left;
+    }
+
+    .sixty-days-module .csc-loss-lines p {
+        font-size: 15px;
+    }
+
+    .sixty-days-module .modal-box {
+        width: 90%;
+        padding: 26px 18px;
+    }
+
+    .sixty-days-module .modal-box h3 {
+        font-size: 16px;
     }
 
     .sixty-days-module .offer-bar-inner {
@@ -1036,6 +1187,17 @@
 
     100% {
         opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .sixty-days-module .image-frame {
+        max-width: 100%;
+        border-radius: 12px;
+    }
+
+    .sixty-days-module .image-frame img {
+        border-radius: 12px;
     }
 }
 
