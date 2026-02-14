@@ -12,6 +12,7 @@ import HNLPThankYou from "./pages/HNLPThankYou";
 import NotFound from "./pages/NotFound";
 import ThankYouCoach from "./pages/ThankYouCoach";
 import HLPThankYou from "./pages/HLPThankYou";
+import SixtyDays from "./pages/SixtyDays";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,8 @@ const App = () => (
           <Route path="/hnlp/thank-you" element={<HNLPThankYou />} />
           <Route path="/thankyoucoach" element={<ThankYouCoach />} />
           <Route path="/hlpthankyou" element={<HLPThankYou />} />
+          <Route path="/6a100days" element={<SixtyDays />} />
+          <Route path="/6a100days/thank-you" element={<HNLPThankYou />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
