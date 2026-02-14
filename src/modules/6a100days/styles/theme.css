@@ -932,6 +932,27 @@
     margin-top: 10px;
 }
 
+.sixty-days-module .continue-btn:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+.sixty-days-module .btn-loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: btn-spin 0.8s ease-in-out infinite;
+    display: inline-block;
+}
+
+@keyframes btn-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .sixty-days-module .hero-subtitle-div {

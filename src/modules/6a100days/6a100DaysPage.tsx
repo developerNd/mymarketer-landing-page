@@ -4,6 +4,7 @@ import './styles/theme.css';
 const SixtyDaysPage = () => {
     const [modalActive, setModalActive] = useState(false);
     const [slideIndex, setSlideIndex] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
     const trackRef = useRef<HTMLDivElement>(null);
 
     const testimonials = [
@@ -34,8 +35,31 @@ const SixtyDaysPage = () => {
     const openModal = () => setModalActive(true);
     const closeModal = () => setModalActive(false);
 
-    const handleFormSubmit = (e: React.FormEvent) => {
+    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setIsLoading(true);
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData.entries());
+
+        // Artificial delay of 1.5s to ensure loader is visible
+        const minDelay = new Promise(resolve => setTimeout(resolve, 1500));
+
+        try {
+            // Send data to webhook
+            const webhookPromise = fetch("https://tool.aiwhatsapp.in/webhook/329/21", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+
+            // Wait for both webhook and min delay
+            await Promise.all([webhookPromise, minDelay]);
+        } catch (error) {
+            console.error("Error sending to webhook:", error);
+            // Even if webhook fails, wait for delay to be consistent
+            await minDelay;
+        }
+
         // Redirect logic
         window.location.href = "https://rzp.io/rzp/u2YpQe7";
     };
@@ -243,17 +267,19 @@ const SixtyDaysPage = () => {
                     <form onSubmit={handleFormSubmit}>
                         <div className="input-box">
                             <i className="fa-solid fa-user"></i>
-                            <input type="text" placeholder="Full Name" required />
+                            <input type="text" name="name" placeholder="Full Name" required />
                         </div>
                         <div className="input-box">
                             <i className="fa-solid fa-phone"></i>
-                            <input type="tel" placeholder="10-digit Mobile Number" required pattern="[0-9]{10}" />
+                            <input type="tel" name="phone" placeholder="10-digit Mobile Number" required pattern="[0-9]{10}" />
                         </div>
                         <div className="input-box">
                             <i className="fa-solid fa-location-dot"></i>
-                            <input type="text" placeholder="City" required />
+                            <input type="text" name="city" placeholder="City" required />
                         </div>
-                        <button type="submit" className="continue-btn">Continue</button>
+                        <button type="submit" className="continue-btn" disabled={isLoading}>
+                            {isLoading ? <div className="btn-loader"></div> : "Continue"}
+                        </button>
                     </form>
                     <small>Aapki details secure hain. Yeh sirf guidance ke liye hai.</small>
                 </div>
