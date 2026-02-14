@@ -62,25 +62,27 @@ const SixtyDaysPage = () => {
             source: '6a100days'
         }).toString();
 
-        const webhookUrl = `https://tool.aiwhatsapp.in/webhook/329/21?${queryParams}`;
+        const webhookUrl = `https://tools.aiwhatsapp.in/webhook/329/21`;
 
-        console.log("Submitting to Webhook:", webhookUrl);
-        console.log("Form Data:", { name, phone, city });
+        console.log("Submitting lead data to webhook:", { name, phone, city });
 
         const minDelay = new Promise(resolve => setTimeout(resolve, 1500));
 
         try {
-            // We send it via BOTH the URL and the Body for maximum compatibility
             const webhookPromise = fetch(webhookUrl, {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: queryParams, // Redundant but safe
-                mode: 'no-cors' // Use no-cors to bypass preflight issues if server doesn't support OPTIONS
+                body: new URLSearchParams({
+                    name,
+                    phone,
+                    city,
+                    source: '6a100days'
+                }).toString(),
             });
 
             await Promise.all([webhookPromise, minDelay]);
         } catch (error) {
-            console.error("Webhook submission failed:", error);
+            console.error("Error sending to webhook:", error);
             await minDelay;
         }
 
