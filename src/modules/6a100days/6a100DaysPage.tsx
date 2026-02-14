@@ -49,37 +49,41 @@ const SixtyDaysPage = () => {
         e.preventDefault();
         setIsLoading(true);
 
-        const payload = {
-            name: formData.name,
-            FullName: formData.name, // Alias for some systems
-            phone: formData.phone,
-            MobileNumber: formData.phone, // Alias for some systems
-            phone_number: formData.phone, // Alias for some systems
-            city: formData.city,
+        // Prepare data
+        const name = formData.name;
+        const phone = formData.phone;
+        const city = formData.city;
+
+        // Create query string for URL (some webhooks only see this)
+        const queryParams = new URLSearchParams({
+            name,
+            phone,
+            city,
             source: '6a100days'
-        };
+        }).toString();
 
-        console.log("Submitting lead data to webhook:", payload);
+        const webhookUrl = `https://tool.aiwhatsapp.in/webhook/329/21?${queryParams}`;
 
-        // Artificial delay of 1.5s to ensure loader is visible
+        console.log("Submitting to Webhook:", webhookUrl);
+        console.log("Form Data:", { name, phone, city });
+
         const minDelay = new Promise(resolve => setTimeout(resolve, 1500));
 
         try {
-            // Send data as JSON
-            const webhookPromise = fetch("https://tool.aiwhatsapp.in/webhook/329/21", {
+            // We send it via BOTH the URL and the Body for maximum compatibility
+            const webhookPromise = fetch(webhookUrl, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload),
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: queryParams, // Redundant but safe
+                mode: 'no-cors' // Use no-cors to bypass preflight issues if server doesn't support OPTIONS
             });
 
-            // Wait for both webhook and min delay
             await Promise.all([webhookPromise, minDelay]);
         } catch (error) {
-            console.error("Error sending to webhook:", error);
+            console.error("Webhook submission failed:", error);
             await minDelay;
         }
 
-        // Redirect logic
         window.location.href = "https://rzp.io/rzp/u2YpQe7";
     };
 
