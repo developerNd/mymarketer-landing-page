@@ -10,7 +10,7 @@ const ThankYouCoach = () => {
     trackPurchase({}, {
       content_name: 'Coach Strategy Session',
       content_category: 'Coaching',
-      value: 499,
+      // value: 499,
       currency: 'INR'
     });
   }, []);
