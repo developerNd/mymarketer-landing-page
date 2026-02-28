@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/premium-button';
 import { AnimatedSection } from '@/components/ui/animated-section';
 import { CheckCircle, Calendar, Clock, Users, Star } from 'lucide-react';
+import { trackPurchase, trackLead } from '@/lib/facebook-tracking';
 
 const ThankYouCoach = () => {
+  useEffect(() => {
+    // Track purchase event on page load
+    trackPurchase({}, {
+      content_name: 'Coach Strategy Session',
+      content_category: 'Coaching',
+      value: 499,
+      currency: 'INR'
+    });
+  }, []);
+
   const handleYesClick = () => {
+    trackLead({}, {
+      content_name: 'Enagic Owner Meeting Booking',
+      content_category: 'Coaching',
+      meeting_type: '60 min'
+    });
     window.open('https://tools.aiwhatsapp.in/calender/329/565/60%20min', '_blank');
   };
 
   const handleNoClick = () => {
+    trackLead({}, {
+      content_name: 'Non-Enagic Owner Meeting Booking',
+      content_category: 'Coaching',
+      meeting_type: '30 min'
+    });
     window.open('https://tools.aiwhatsapp.in/calender/329/166/30%20min', '_blank');
   };
 
