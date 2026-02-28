@@ -2,15 +2,21 @@ import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/premium-button';
 import { AnimatedSection } from '@/components/ui/animated-section';
 import { CheckCircle, Calendar, Clock, Users, Star } from 'lucide-react';
-import { trackPurchase, trackLead } from '@/lib/facebook-tracking';
+import { trackPurchase, trackLead, trackEvent } from '@/lib/facebook-tracking';
 
 const ThankYouCoach = () => {
   useEffect(() => {
-    // Track purchase event on page load
+    // Track standard purchase event
     trackPurchase({}, {
       content_name: 'Coach Strategy Session',
       content_category: 'Coaching',
-      // value: 499,
+      value: 0.00,
+      currency: 'INR'
+    });
+
+    // Track specifically named event for the user's custom conversion
+    trackEvent('Purchase NM', {}, {
+      value: 0.00,
       currency: 'INR'
     });
   }, []);

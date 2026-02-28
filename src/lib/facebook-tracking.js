@@ -1,12 +1,24 @@
-// Simple Facebook tracking utility
+// Standard Meta Pixel Event Names
+const standardEvents = [
+  'AddPaymentInfo', 'AddToCart', 'AddToWishlist', 'CompleteRegistration',
+  'Contact', 'CustomizeProduct', 'Donate', 'FindLocation',
+  'InitiateCheckout', 'Lead', 'Purchase', 'Schedule', 'Search',
+  'StartTrial', 'StartTrial', 'SubmitApplication', 'Subscribe', 'ViewContent'
+];
+
 export const trackEvent = async (eventName, userData = {}, customData = {}) => {
   const eventId = `${eventName}_${Date.now()}`;
   console.log(`🎯 Tracking ${eventName} event:`, { userData, customData, eventId });
 
   // 1. Browser-side Tracking (Meta Pixel)
   if (typeof window !== 'undefined' && window.fbq) {
-    window.fbq('track', eventName, customData, { eventID: eventId });
-    console.log(`✅ ${eventName} tracked via Browser Pixel`);
+    const isStandard = standardEvents.includes(eventName);
+    if (isStandard) {
+      window.fbq('track', eventName, customData, { eventID: eventId });
+    } else {
+      window.fbq('trackCustom', eventName, customData, { eventID: eventId });
+    }
+    console.log(`✅ ${eventName} tracked via Browser Pixel (${isStandard ? 'standard' : 'custom'})`);
   }
 
   // 2. Server-side Tracking (Conversion API via Proxy)
