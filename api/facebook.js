@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { event_name, event_id, user_data, custom_data } = req.body;
+  const { event_name, event_id, user_data, custom_data, test_event_code } = req.body;
 
   if (!event_name) {
     return res.status(400).json({ error: "event_name is required" });
@@ -15,8 +15,8 @@ export default async function handler(req, res) {
 
   if (!FB_PIXEL_ID || !FB_ACCESS_TOKEN) {
     console.error('❌ Missing Facebook credentials in environment variables');
-    return res.status(500).json({ 
-      error: "Facebook credentials not configured. Please set FB_PIXEL_ID and FB_ACCESS_TOKEN environment variables." 
+    return res.status(500).json({
+      error: "Facebook credentials not configured. Please set FB_PIXEL_ID and FB_ACCESS_TOKEN environment variables."
     });
   }
 
@@ -42,12 +42,13 @@ export default async function handler(req, res) {
               event_source_url: req.headers.referer || req.headers.origin
             },
           ],
+          test_event_code
         }),
       }
     );
 
     const data = await response.json();
-    
+
     if (!response.ok) {
       throw new Error(`Facebook API error: ${JSON.stringify(data)}`);
     }

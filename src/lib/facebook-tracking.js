@@ -23,6 +23,13 @@ export const trackEvent = async (eventName, userData = {}, customData = {}) => {
 
   // 2. Server-side Tracking (Conversion API via Proxy)
   try {
+    // Get test event code if for debug
+    let testEventCode = null;
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      testEventCode = urlParams.get('test_event_code') || localStorage.getItem('fb_test_code');
+    }
+
     const response = await fetch("/api/facebook", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -30,7 +37,8 @@ export const trackEvent = async (eventName, userData = {}, customData = {}) => {
         event_name: eventName,
         event_id: eventId,
         user_data: userData,
-        custom_data: customData
+        custom_data: customData,
+        test_event_code: testEventCode
       }),
     });
 
