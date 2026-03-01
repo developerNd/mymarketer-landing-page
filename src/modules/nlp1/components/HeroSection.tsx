@@ -11,7 +11,7 @@ const HeroSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
             </div>
 
-            <div className="relative z-10 container mx-auto px-4 py-20 text-center max-w-5xl">
+            <div className="relative z-10 container mx-auto px-4 pt-10 pb-20 md:py-20 text-center max-w-5xl">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ const HeroSection = () => {
                         rel="noopener noreferrer"
                         className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-gold text-primary-foreground font-body font-bold text-lg rounded-lg shadow-gold animate-pulse-gold hover:scale-105 transition-transform"
                     >
-                        Book Your Free Zoom Call
+                        Book Your Zoom Call
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </a>
                 </motion.div>

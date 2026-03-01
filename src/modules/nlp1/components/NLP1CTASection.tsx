@@ -23,7 +23,7 @@ const NLP1CTASection = () => {
                         🚀 Ready To Build A Real System?
                     </span>
                     <h2 className="text-3xl md:text-5xl font-display font-bold mt-4 mb-3">
-                        Book Your Free{" "}
+                        Book Your{" "}
                         <span className="text-gradient-gold">1:1 Growth Strategy</span>{" "}
                         Zoom Call
                     </h2>
