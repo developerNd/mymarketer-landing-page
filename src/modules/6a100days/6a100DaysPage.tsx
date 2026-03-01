@@ -2,20 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import './styles/theme.css';
 
 const SixtyDaysPage = () => {
-    const [modalActive, setModalActive] = useState(false);
     const [slideIndex, setSlideIndex] = useState(0);
-    const [isLoading, setIsLoading] = useState(false);
-    const [formData, setFormData] = useState({
-        name: '',
-        phone: '',
-        city: ''
-    });
     const trackRef = useRef<HTMLDivElement>(null);
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-    };
 
     const testimonials = [
         { initials: 'RM', name: 'Rohit Mehta', issue: 'Digestive Issues', review: '“I stopped masking symptoms and finally understood what my body needed. Digestion feels lighter now.”' },
@@ -42,50 +30,7 @@ const SixtyDaysPage = () => {
         }
     }, [slideIndex]);
 
-    const openModal = () => setModalActive(true);
-    const closeModal = () => setModalActive(false);
-
-    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setIsLoading(true);
-
-        // Prepare data
-        const name = formData.name;
-        const phone = formData.phone;
-        const city = formData.city;
-
-        // Create query string for URL (some webhooks only see this)
-        const queryParams = new URLSearchParams({
-            name,
-            phone,
-            city,
-            source: '6a100days'
-        }).toString();
-
-        const webhookUrl = `https://tools.aiwhatsapp.in/webhook/329/21`;
-
-        console.log("Submitting lead data to webhook:", { name, phone, city });
-
-        const minDelay = new Promise(resolve => setTimeout(resolve, 1500));
-
-        try {
-            const webhookPromise = fetch(webhookUrl, {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams({
-                    name,
-                    phone,
-                    city,
-                    source: '6a100days'
-                }).toString(),
-            });
-
-            await Promise.all([webhookPromise, minDelay]);
-        } catch (error) {
-            console.error("Error sending to webhook:", error);
-            await minDelay;
-        }
-
+    const handlePaymentRedirect = () => {
         window.location.href = "https://rzp.io/rzp/u2YpQe7";
     };
 
@@ -108,7 +53,7 @@ const SixtyDaysPage = () => {
                 </div>
 
                 <div className="btn-group">
-                    <button className="btn call-btn" onClick={openModal}>Unlock Formula NOW</button>
+                    <button className="btn call-btn" onClick={handlePaymentRedirect}>Unlock Formula NOW</button>
                 </div>
             </section>
 
@@ -134,7 +79,7 @@ const SixtyDaysPage = () => {
                     </div>
                 </div>
                 <div className="btn-group">
-                    <button className="btn call-btn" onClick={openModal}>Unlock Formula NOW</button>
+                    <button className="btn call-btn" onClick={handlePaymentRedirect}>Unlock Formula NOW</button>
                 </div>
                 <p className="mt-8">Trusted by <span>300+ individuals</span> Alkaline Water Business Owner</p>
             </section>
@@ -214,7 +159,7 @@ const SixtyDaysPage = () => {
 
                 <p className="science-note">Tab aap regret bhi nahi kar paoge, kyunki <br /> Game already over hoga.</p>
                 <div className="btn-group">
-                    <button className="btn call-btn" onClick={openModal}>Unlock Formula NOW</button>
+                    <button className="btn call-btn" onClick={handlePaymentRedirect}>Unlock Formula NOW</button>
                 </div>
             </section>
 
@@ -244,7 +189,7 @@ const SixtyDaysPage = () => {
                     ))}
                 </div>
                 <div className="btn-group">
-                    <button className="btn call-btn" onClick={openModal}>Unlock Formula NOW</button>
+                    <button className="btn call-btn" onClick={handlePaymentRedirect}>Unlock Formula NOW</button>
                 </div>
             </section>
 
@@ -264,7 +209,7 @@ const SixtyDaysPage = () => {
                     </div>
                 </div>
                 <div className="btn-group">
-                    <button className="btn call-btn" onClick={openModal}>Unlock Formula NOW</button>
+                    <button className="btn call-btn" onClick={handlePaymentRedirect}>Unlock Formula NOW</button>
                 </div>
                 <div className="roadmap-subtext-z1">
                     Market rukega nahi.<br />
@@ -280,58 +225,6 @@ const SixtyDaysPage = () => {
                 </div>
             </section>
 
-            {/* MODAL */}
-            <div className={`modal-overlay ${modalActive ? 'active' : ''}`} onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}>
-                <div className="modal-box">
-                    <div className="close-btn" onClick={closeModal}>&times;</div>
-                    <div className="modal-icon">
-                        <i className="fa-solid fa-heart-pulse"></i>
-                    </div>
-                    <h3>Let’s Take the First Step</h3>
-                    <p>Aaj liya gaya ek sahi decision aapki body ke healing process ko direction deta hai.</p>
-                    <form onSubmit={handleFormSubmit}>
-                        <div className="input-box">
-                            <i className="fa-solid fa-user"></i>
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Full Name"
-                                required
-                                value={formData.name}
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                        <div className="input-box">
-                            <i className="fa-solid fa-phone"></i>
-                            <input
-                                type="tel"
-                                name="phone"
-                                placeholder="10-digit Mobile Number"
-                                required
-                                pattern="[0-9]{10}"
-                                value={formData.phone}
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                        <div className="input-box">
-                            <i className="fa-solid fa-location-dot"></i>
-                            <input
-                                type="text"
-                                name="city"
-                                placeholder="City"
-                                required
-                                value={formData.city}
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                        <button type="submit" className="continue-btn" disabled={isLoading}>
-                            {isLoading ? <div className="btn-loader"></div> : "Continue"}
-                        </button>
-                    </form>
-                    <small>Aapki details secure hain. Yeh sirf guidance ke liye hai.</small>
-                </div>
-            </div>
-
             {/* BOTTOM FIXED BAR */}
             <div className="offer-fixed-bar">
                 <div className="offer-bar-inner">
@@ -343,7 +236,7 @@ const SixtyDaysPage = () => {
                         <div className="offer-deadline">₹99 | Refundable After Meeting</div>
                     </div>
                     <div className="offer-right">
-                        <button className="offer-btn" onClick={openModal}>Unlock Formula NOW</button>
+                        <button className="offer-btn" onClick={handlePaymentRedirect}>Unlock Formula NOW</button>
                     </div>
                 </div>
             </div>

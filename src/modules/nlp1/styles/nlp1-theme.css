@@ -1,0 +1,181 @@
+/* NLP1 Module Theme - Source from Enagic Spark Accelerator */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+.nlp1-module {
+    /* Design System Variables */
+    --nlp1-background: 220 25% 6%;
+    --nlp1-foreground: 0 0% 95%;
+
+    --nlp1-card: 220 20% 10%;
+    --nlp1-card-foreground: 0 0% 95%;
+
+    --nlp1-primary: 42 78% 55%;
+    --nlp1-primary-foreground: 220 25% 6%;
+
+    --nlp1-secondary: 215 60% 18%;
+    --nlp1-secondary-foreground: 0 0% 95%;
+
+    --nlp1-muted: 220 15% 15%;
+    --nlp1-muted-foreground: 220 10% 55%;
+
+    --nlp1-accent: 215 80% 25%;
+    --nlp1-accent-foreground: 0 0% 95%;
+
+    --nlp1-destructive: 0 84.2% 60.2%;
+    --nlp1-destructive-foreground: 210 40% 98%;
+
+    --nlp1-border: 220 15% 18%;
+    --nlp1-input: 220 15% 18%;
+    --nlp1-ring: 42 78% 55%;
+
+    --nlp1-radius: 0.75rem;
+
+    --nlp1-gold: 42 78% 55%;
+    --nlp1-gold-light: 42 85% 68%;
+    --nlp1-gold-dark: 42 70% 40%;
+    --nlp1-navy: 215 60% 18%;
+    --nlp1-navy-deep: 220 40% 8%;
+    --nlp1-navy-light: 215 50% 28%;
+
+    --nlp1-font-display: 'Playfair Display', serif;
+    --nlp1-font-body: 'Inter', sans-serif;
+
+    /* Base Styles */
+    background-color: hsl(var(--nlp1-background));
+    color: hsl(var(--nlp1-foreground));
+    font-family: var(--nlp1-font-body);
+    line-height: 1.5;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.nlp1-module * {
+    border-color: hsl(var(--nlp1-border));
+}
+
+.nlp1-module h1,
+.nlp1-module h2,
+.nlp1-module h3,
+.nlp1-module h4,
+.nlp1-module h5,
+.nlp1-module h6 {
+    font-family: var(--nlp1-font-display);
+}
+
+/* Custom Utilities from Source */
+.nlp1-module .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(42, 78%, 55%), hsl(42, 85%, 68%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nlp1-module .bg-gradient-gold {
+    background: linear-gradient(135deg, hsl(42, 78%, 55%), hsl(42, 85%, 68%));
+}
+
+.nlp1-module .bg-gradient-navy {
+    background: linear-gradient(180deg, hsl(220, 25%, 6%), hsl(215, 60%, 12%));
+}
+
+.nlp1-module .bg-gradient-card {
+    background: linear-gradient(145deg, hsl(220, 20%, 12%), hsl(220, 20%, 8%));
+}
+
+.nlp1-module .bg-gradient-hero {
+    background: linear-gradient(180deg, hsl(220, 25%, 6%) 0%, hsl(215, 40%, 10%) 50%, hsl(220, 25%, 6%) 100%);
+}
+
+.nlp1-module .shadow-gold {
+    box-shadow: 0 0 30px hsl(42 78% 55% / 0.15);
+}
+
+.nlp1-module .glow-gold {
+    box-shadow: 0 0 40px hsl(42 78% 55% / 0.25), 0 0 80px hsl(42 78% 55% / 0.1);
+}
+
+.nlp1-module .animate-pulse-gold {
+    animation: nlp1-pulse-gold 3s ease-in-out infinite;
+}
+
+@keyframes nlp1-pulse-gold {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px hsl(42 78% 55% / 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 40px hsl(42 78% 55% / 0.4);
+    }
+}
+
+.nlp1-module .line-gold {
+    background: linear-gradient(90deg, transparent, hsl(42, 78%, 55%), transparent);
+    height: 1px;
+}
+
+/* Mapping Tailwind classes to scoped variables */
+.nlp1-module .bg-background {
+    background-color: hsl(var(--nlp1-background));
+}
+
+.nlp1-module .text-foreground {
+    color: hsl(var(--nlp1-foreground));
+}
+
+.nlp1-module .text-muted-foreground {
+    color: hsl(var(--nlp1-muted-foreground));
+}
+
+.nlp1-module .text-primary {
+    color: hsl(var(--nlp1-primary));
+}
+
+.nlp1-module .text-primary-foreground {
+    color: hsl(var(--nlp1-primary-foreground));
+}
+
+.nlp1-module .bg-primary {
+    background-color: hsl(var(--nlp1-primary));
+}
+
+.nlp1-module .bg-secondary {
+    background-color: hsl(var(--nlp1-secondary));
+}
+
+.nlp1-module .bg-muted {
+    background-color: hsl(var(--nlp1-muted));
+}
+
+.nlp1-module .bg-gold\/5 {
+    background-color: hsla(42, 78%, 55%, 0.05);
+}
+
+.nlp1-module .bg-gold\/10 {
+    background-color: hsla(42, 78%, 55%, 0.1);
+}
+
+.nlp1-module .bg-gold\/20 {
+    background-color: hsla(42, 78%, 55%, 0.2);
+}
+
+.nlp1-module .border-gold\/20 {
+    border-color: hsla(42, 78%, 55%, 0.2);
+}
+
+.nlp1-module .border-gold\/30 {
+    border-color: hsla(42, 78%, 55%, 0.3);
+}
+
+.nlp1-module .text-gold\/10 {
+    color: hsla(42, 78%, 55%, 0.1);
+}
+
+.nlp1-module .text-gold\/20 {
+    color: hsla(42, 78%, 55%, 0.2);
+}
+
+.nlp1-module .text-gold\/30 {
+    color: hsla(42, 78%, 55%, 0.3);
+}
