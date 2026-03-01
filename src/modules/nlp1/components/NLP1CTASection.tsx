@@ -8,7 +8,7 @@ const callPoints = [
     "Decide If We Are A Good Fit",
 ];
 
-const CTASection = () => {
+const NLP1CTASection = () => {
     return (
         <section id="book-call" className="py-24 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background" />
@@ -67,4 +67,4 @@ const CTASection = () => {
     );
 };
 
-export default CTASection;
+export default NLP1CTASection;

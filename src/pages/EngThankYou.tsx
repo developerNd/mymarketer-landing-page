@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/premium-button';
 import { AnimatedSection } from '@/components/ui/animated-section';
-import { CheckCircle, Calendar, Clock } from 'lucide-react';
-import { trackPurchase, trackEvent } from '@/lib/facebook-tracking';
+import { CheckCircle, Calendar, Clock, Users, Star } from 'lucide-react';
+import { trackPurchase, trackLead, trackEvent } from '@/lib/facebook-tracking';
 
 const EngThankYou = () => {
     useEffect(() => {
@@ -14,15 +14,30 @@ const EngThankYou = () => {
             currency: 'INR'
         });
 
-        // Track specifically named event if needed for custom conversion
+        // Track specifically named event for the user's custom conversion
         trackEvent('Purchase NM', {}, {
             value: 0.00,
             currency: 'INR'
         });
     }, []);
 
-    const handleBookMeeting = () => {
-        window.open('https://tool.aiwhatsapp.in/calender/329/565/30%20min', '_blank');
+    const handleYesClick = () => {
+        trackLead({}, {
+            content_name: 'Enagic Owner Meeting Booking (English)',
+            content_category: 'Coaching',
+            meeting_type: '60 min'
+        });
+        window.open('https://tools.aiwhatsapp.in/calender/329/565/60%20min', '_blank');
+    };
+
+    const handleNoClick = () => {
+        trackLead({}, {
+            content_name: 'Non-Enagic Owner Meeting Booking (English)',
+            content_category: 'Coaching',
+            meeting_type: '30 min'
+        });
+        // Keeping the original 'No' link from ThankYouCoach as no specific 'No' link was provided for English
+        window.open('https://tools.aiwhatsapp.in/calender/329/166/30%20min', '_blank');
     };
 
     return (
@@ -47,7 +62,7 @@ const EngThankYou = () => {
                     {/* Congratulations heading */}
                     <AnimatedSection animation="fade-up">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-display font-bold leading-tight mb-6">
-                            <span className="gradient-text">Thank You!</span>
+                            <span className="gradient-text">Congratulations!</span>
                         </h1>
                     </AnimatedSection>
 
@@ -56,11 +71,11 @@ const EngThankYou = () => {
                         <div className="text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-8 space-y-3">
                             <p className="flex items-center justify-center gap-2">
                                 <CheckCircle className="w-5 h-5 text-accent" />
-                                Your submission has been received.
+                                Payment Successful - You're All Set!
                             </p>
                             <p className="flex items-center justify-center gap-2">
                                 <Calendar className="w-5 h-5 text-primary" />
-                                You can schedule your session below
+                                Ready to Schedule Your Strategy Session
                             </p>
                         </div>
                     </AnimatedSection>
@@ -70,22 +85,32 @@ const EngThankYou = () => {
                         <div className="mb-12">
                             <div className="glass p-6 md:p-8 rounded-2xl mb-8 bg-gradient-to-r from-primary/5 to-accent/5">
                                 <h2 className="text-2xl sm:text-3xl lg:text-5xl font-display font-bold mb-4">
-                                    <span className="gradient-accent-text">Book Your Meeting Now</span>
+                                    <span className="gradient-accent-text">Are you an Enagic Business Owner?</span>
                                 </h2>
                                 <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6">
-                                    Choose a time that works best for you
+                                    Please select your option to schedule the appropriate meeting
                                 </p>
 
-                                {/* Single CTA Button */}
-                                <div className="flex justify-center">
+                                {/* Yes/No Buttons */}
+                                <div className="flex justify-center gap-4 flex-wrap">
                                     <Button
                                         variant="hero"
                                         size="xl"
-                                        className="group min-w-[250px]"
-                                        onClick={handleBookMeeting}
+                                        className="group min-w-[200px]"
+                                        onClick={handleYesClick}
                                     >
                                         <Calendar className="mr-2 w-5 h-5" />
-                                        Book Now
+                                        Yes
+                                        <Clock className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </Button>
+                                    <Button
+                                        variant="hero"
+                                        size="xl"
+                                        className="group min-w-[200px]"
+                                        onClick={handleNoClick}
+                                    >
+                                        <Calendar className="mr-2 w-5 h-5" />
+                                        No
                                         <Clock className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </Button>
                                 </div>
