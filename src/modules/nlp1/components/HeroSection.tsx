@@ -4,14 +4,14 @@ import heroBg from "../assets/hero-bg.jpg";
 
 const HeroSection = () => {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen flex items-start md:items-center justify-center overflow-hidden">
             {/* Background */}
             <div className="absolute inset-0">
                 <img src={heroBg} alt="" className="w-full h-full object-cover opacity-40" />
                 <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
             </div>
 
-            <div className="relative z-10 container mx-auto px-4 pt-10 pb-20 md:py-20 text-center max-w-5xl">
+            <div className="relative z-10 container mx-auto px-4 pt-4 pb-20 md:py-20 text-center max-w-5xl">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
