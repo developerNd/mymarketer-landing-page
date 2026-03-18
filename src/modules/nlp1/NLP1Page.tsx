@@ -7,18 +7,8 @@ import WhoForSection from "./components/WhoForSection";
 import NLP1CTASection from "./components/NLP1CTASection";
 import "./styles/nlp1-theme.css";
 
-// BottomNav component (UI unchanged)
+// BottomNav component (UI same)
 const BottomNav = () => {
-  const handleClick = () => {
-    console.log("CTA Clicked ✅ (Bottom Nav)");
-    if (window.fbq) {
-      window.fbq("track", "Lead");
-    }
-    setTimeout(() => {
-      window.open("https://rzp.io/rzp/u2YpQe7", "_blank");
-    }, 500);
-  };
-
   return (
     <div id="nlp1-bottom-nav">
       <div className="bottom-nav-container">
@@ -58,7 +48,7 @@ const BottomNav = () => {
                 Special Launch Offer
               </div>
             </div>
-            <button className="cta-button" onClick={handleClick}>
+            <button className="cta-button" data-razorpay>
               Book Your Zoom Call Now
             </button>
           </div>
@@ -70,15 +60,21 @@ const BottomNav = () => {
 
 const NLP1Page = () => {
   useEffect(() => {
-    // Global click handler for ALL CTA buttons
     const handleAllCTA = (e) => {
-      const target = e.target;
+      const target = e.target.closest(".cta-button");
+      if (!target) return;
 
-      // Track any button with class "cta-button" OR data-track-lead
-      if (target && (target.closest(".cta-button") || target.dataset.trackLead === "true")) {
+      // Lead fires only once per button
+      if (!target.dataset.leadFired) {
+        target.dataset.leadFired = "true";
         console.log("CTA Clicked ✅", target);
-        if (window.fbq) {
-          window.fbq("track", "Lead");
+
+        // Fire Facebook Pixel Lead event
+        if (window.fbq) window.fbq("track", "Lead");
+
+        // Bottom CTA opens Razorpay safely
+        if (target.hasAttribute("data-razorpay")) {
+          window.open("https://rzp.io/rzp/u2YpQe7", "_blank");
         }
       }
     };
@@ -92,13 +88,15 @@ const NLP1Page = () => {
 
   return (
     <div className="nlp1-module min-h-screen bg-background overflow-x-hidden pb-24">
-      {/* TOP CTA button: add data-track-lead to ensure Lead fires */}
+      {/* Top CTA */}
       <HeroSection />
+      {/* Middle CTA */}
       <IntroSection />
       <WhatWeBuildSection />
       <HowItWorksSection />
       <WhoForSection />
       <NLP1CTASection />
+      {/* Bottom CTA */}
       <BottomNav />
     </div>
   );
