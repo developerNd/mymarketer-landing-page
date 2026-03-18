@@ -5,7 +5,7 @@ import HowItWorksSection from "./components/HowItWorksSection";
 import WhoForSection from "./components/WhoForSection";
 import NLP1CTASection from "./components/NLP1CTASection";
 import "./styles/nlp1-theme.css";
-import { useEffect } from "react";
+import { useEffect } from "react"; 
 
 const NLP1Page = () => {
     useEffect(() => {
