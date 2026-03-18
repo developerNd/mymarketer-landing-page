@@ -7,7 +7,26 @@ import WhoForSection from "./components/WhoForSection";
 import NLP1CTASection from "./components/NLP1CTASection";
 import "./styles/nlp1-theme.css";
 
-// BottomNav component (UI same)
+// Reusable function for Lead tracking
+const trackLead = (e) => {
+  const target = e.currentTarget;
+
+  // Prevent duplicate firing
+  if (!target.dataset.leadFired) {
+    target.dataset.leadFired = "true";
+    console.log("CTA Clicked ✅", target);
+
+    // Fire Facebook Pixel Lead event
+    if (window.fbq) window.fbq("track", "Lead");
+
+    // If bottom nav button, open Razorpay
+    if (target.dataset.razorpay) {
+      window.open("https://rzp.io/rzp/u2YpQe7", "_blank");
+    }
+  }
+};
+
+// BottomNav component (UI unchanged)
 const BottomNav = () => {
   return (
     <div id="nlp1-bottom-nav">
@@ -48,7 +67,8 @@ const BottomNav = () => {
                 Special Launch Offer
               </div>
             </div>
-            <button className="cta-button" data-razorpay>
+            {/* Attach trackLead directly to button */}
+            <button className="cta-button" data-razorpay onClick={trackLead}>
               Book Your Zoom Call Now
             </button>
           </div>
@@ -59,43 +79,18 @@ const BottomNav = () => {
 };
 
 const NLP1Page = () => {
-  useEffect(() => {
-    const handleAllCTA = (e) => {
-      const target = e.target.closest(".cta-button");
-      if (!target) return;
-
-      // Lead fires only once per button
-      if (!target.dataset.leadFired) {
-        target.dataset.leadFired = "true";
-        console.log("CTA Clicked ✅", target);
-
-        // Fire Facebook Pixel Lead event
-        if (window.fbq) window.fbq("track", "Lead");
-
-        // Bottom CTA opens Razorpay safely
-        if (target.hasAttribute("data-razorpay")) {
-          window.open("https://rzp.io/rzp/u2YpQe7", "_blank");
-        }
-      }
-    };
-
-    document.addEventListener("click", handleAllCTA);
-
-    return () => {
-      document.removeEventListener("click", handleAllCTA);
-    };
-  }, []);
-
   return (
     <div className="nlp1-module min-h-screen bg-background overflow-x-hidden pb-24">
-      {/* Top CTA */}
-      <HeroSection />
-      {/* Middle CTA */}
-      <IntroSection />
+      {/* Top CTA button in HeroSection */}
+      <HeroSection trackLead={trackLead} />
+
+      {/* Middle CTA button in NLP1CTASection or IntroSection */}
+      <IntroSection trackLead={trackLead} />
       <WhatWeBuildSection />
       <HowItWorksSection />
       <WhoForSection />
-      <NLP1CTASection />
+      <NLP1CTASection trackLead={trackLead} />
+
       {/* Bottom CTA */}
       <BottomNav />
     </div>
