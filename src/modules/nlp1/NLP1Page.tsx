@@ -34,20 +34,35 @@ const NLP1Page = () => {
         `;
 
         document.body.appendChild(bottomNavElement);
-        setTimeout(() => {
-          const btn = document.querySelector('.cta-button');
-          if (btn) {
-            btn.addEventListener('click', () => {
-              if (window.fbq) {
-                window.fbq('track', 'Lead');
-              }
-              window.open('https://rzp.io/rzp/u2YpQe7', '_blank', 'noopener,noreferrer');
-            });
-         }
-        }, 1000);
 
-        // Cleanup function
+        // ✅ FIXED EVENT HANDLER (same behavior, better tracking)
+        const handleClick = (e) => {
+            const target = e.target;
+
+            if (target && target.closest('.cta-button')) {
+                console.log("CTA Clicked");
+
+                // ✅ Lead event
+                if (window.fbq) {
+                    window.fbq('track', 'Lead', {
+                        value: 99,
+                        currency: 'INR'
+                    });
+                }
+
+                // ✅ Small delay so event fires properly
+                setTimeout(() => {
+                    window.open('https://rzp.io/rzp/u2YpQe7', '_blank');
+                }, 300);
+            }
+        };
+
+        document.addEventListener('click', handleClick);
+
+        // ✅ CLEANUP FIX
         return () => {
+            document.removeEventListener('click', handleClick);
+
             const existingNav = document.getElementById('nlp1-bottom-nav');
             if (existingNav) {
                 document.body.removeChild(existingNav);
