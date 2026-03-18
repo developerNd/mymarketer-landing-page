@@ -7,18 +7,8 @@ import WhoForSection from "./components/WhoForSection";
 import NLP1CTASection from "./components/NLP1CTASection";
 import "./styles/nlp1-theme.css";
 
-// BottomNav remains unchanged
+// BottomNav component (UI unchanged)
 const BottomNav = () => {
-  const handleClick = () => {
-    console.log("CTA Clicked ✅ (Bottom Nav)");
-    if (window.fbq) {
-      window.fbq("track", "Lead");
-    }
-    setTimeout(() => {
-      window.open("https://rzp.io/rzp/u2YpQe7", "_blank");
-    }, 500); // delay ensures fbq fires
-  };
-
   return (
     <div id="nlp1-bottom-nav">
       <div className="bottom-nav-container">
@@ -58,7 +48,10 @@ const BottomNav = () => {
                 Special Launch Offer
               </div>
             </div>
-            <button className="cta-button" onClick={handleClick}>
+            <button
+              className="cta-button"
+              data-razorpay
+            >
               Book Your Zoom Call Now
             </button>
           </div>
@@ -70,19 +63,31 @@ const BottomNav = () => {
 
 const NLP1Page = () => {
   useEffect(() => {
-    // Global click handler for ALL buttons with class "cta-button"
     const handleAllCTA = (e) => {
-      const target = e.target;
-      if (target && target.closest(".cta-button")) {
+      const target = e.target.closest(".cta-button");
+      if (!target) return;
+
+      // Prevent duplicate Lead firing
+      if (!target.dataset.leadFired) {
+        target.dataset.leadFired = "true"; // mark as fired
         console.log("CTA Clicked ✅", target);
+
         if (window.fbq) {
           window.fbq("track", "Lead");
+        }
+
+        // If button is BottomNav / Razorpay type
+        if (target.hasAttribute("data-razorpay")) {
+          setTimeout(() => {
+            window.open("https://rzp.io/rzp/u2YpQe7", "_blank");
+          }, 500); // delay to allow fbq fire
         }
       }
     };
 
     document.addEventListener("click", handleAllCTA);
 
+    // Reset leadFired on page reload to allow new clicks
     return () => {
       document.removeEventListener("click", handleAllCTA);
     };
@@ -90,15 +95,18 @@ const NLP1Page = () => {
 
   return (
     <div className="nlp1-module min-h-screen bg-background overflow-x-hidden pb-24">
+      {/* Top / Middle CTA buttons inside their components */}
       <HeroSection />
       <IntroSection />
       <WhatWeBuildSection />
       <HowItWorksSection />
       <WhoForSection />
       <NLP1CTASection />
+
+      {/* Bottom Nav CTA */}
       <BottomNav />
     </div>
   );
 };
 
-export default NLP1Page;
+export default NLP1Page;e;
