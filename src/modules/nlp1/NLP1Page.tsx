@@ -36,7 +36,13 @@ const NLP1Page = () => {
                         <!-- ✅ IMPORTANT: Lead event added -->
                         <button 
                             class="cta-button"
-                            onclick="window.fbq && window.fbq('track', 'Lead'); window.open('https://rzp.io/rzp/u2YpQe7', '_blank', 'noopener,noreferrer')"
+                            onclick="
+if (!window.__leadTracked) {
+  window.fbq && window.fbq('track', 'Lead');
+  window.__leadTracked = true;
+}
+window.open('https://rzp.io/rzp/u2YpQe7', '_blank', 'noopener,noreferrer')
+"
                         >
                             Book Your Zoom Call Now
                         </button>
