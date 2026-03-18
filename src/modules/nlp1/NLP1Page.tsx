@@ -7,9 +7,10 @@ import WhoForSection from "./components/WhoForSection";
 import NLP1CTASection from "./components/NLP1CTASection";
 import "./styles/nlp1-theme.css";
 
+// BottomNav remains unchanged
 const BottomNav = () => {
   const handleClick = () => {
-    console.log("CTA Clicked ✅");
+    console.log("CTA Clicked ✅ (Bottom Nav)");
     if (window.fbq) {
       window.fbq("track", "Lead");
     }
@@ -68,6 +69,25 @@ const BottomNav = () => {
 };
 
 const NLP1Page = () => {
+  useEffect(() => {
+    // Global click handler for ALL buttons with class "cta-button"
+    const handleAllCTA = (e) => {
+      const target = e.target;
+      if (target && target.closest(".cta-button")) {
+        console.log("CTA Clicked ✅", target);
+        if (window.fbq) {
+          window.fbq("track", "Lead");
+        }
+      }
+    };
+
+    document.addEventListener("click", handleAllCTA);
+
+    return () => {
+      document.removeEventListener("click", handleAllCTA);
+    };
+  }, []);
+
   return (
     <div className="nlp1-module min-h-screen bg-background overflow-x-hidden pb-24">
       <HeroSection />
