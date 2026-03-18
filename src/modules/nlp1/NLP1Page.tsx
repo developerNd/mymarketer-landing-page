@@ -27,7 +27,7 @@ const NLP1Page = () => {
                         </div>
                         <button 
                             class="cta-button"
-                            onclick="window.open('https://rzp.io/rzp/u2YpQe7', '_blank', 'noopener,noreferrer')"
+                           onclick="window.fbq('track', 'Lead'); window.open('https://rzp.io/rzp/u2YpQe7', '_blank', 'noopener,noreferrer')"
                         >
                             Book Your Zoom Call Now
                         </button>
