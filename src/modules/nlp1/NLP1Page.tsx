@@ -9,6 +9,16 @@ import "./styles/nlp1-theme.css";
 
 // BottomNav component (UI unchanged)
 const BottomNav = () => {
+  const handleClick = () => {
+    console.log("CTA Clicked ✅ (Bottom Nav)");
+    if (window.fbq) {
+      window.fbq("track", "Lead");
+    }
+    setTimeout(() => {
+      window.open("https://rzp.io/rzp/u2YpQe7", "_blank");
+    }, 500);
+  };
+
   return (
     <div id="nlp1-bottom-nav">
       <div className="bottom-nav-container">
@@ -48,10 +58,7 @@ const BottomNav = () => {
                 Special Launch Offer
               </div>
             </div>
-            <button
-              className="cta-button"
-              data-razorpay
-            >
+            <button className="cta-button" onClick={handleClick}>
               Book Your Zoom Call Now
             </button>
           </div>
@@ -63,31 +70,21 @@ const BottomNav = () => {
 
 const NLP1Page = () => {
   useEffect(() => {
+    // Global click handler for ALL CTA buttons
     const handleAllCTA = (e) => {
-      const target = e.target.closest(".cta-button");
-      if (!target) return;
+      const target = e.target;
 
-      // Prevent duplicate Lead firing
-      if (!target.dataset.leadFired) {
-        target.dataset.leadFired = "true"; // mark as fired
+      // Track any button with class "cta-button" OR data-track-lead
+      if (target && (target.closest(".cta-button") || target.dataset.trackLead === "true")) {
         console.log("CTA Clicked ✅", target);
-
         if (window.fbq) {
           window.fbq("track", "Lead");
-        }
-
-        // If button is BottomNav / Razorpay type
-        if (target.hasAttribute("data-razorpay")) {
-          setTimeout(() => {
-            window.open("https://rzp.io/rzp/u2YpQe7", "_blank");
-          }, 500); // delay to allow fbq fire
         }
       }
     };
 
     document.addEventListener("click", handleAllCTA);
 
-    // Reset leadFired on page reload to allow new clicks
     return () => {
       document.removeEventListener("click", handleAllCTA);
     };
@@ -95,18 +92,16 @@ const NLP1Page = () => {
 
   return (
     <div className="nlp1-module min-h-screen bg-background overflow-x-hidden pb-24">
-      {/* Top / Middle CTA buttons inside their components */}
+      {/* TOP CTA button: add data-track-lead to ensure Lead fires */}
       <HeroSection />
       <IntroSection />
       <WhatWeBuildSection />
       <HowItWorksSection />
       <WhoForSection />
       <NLP1CTASection />
-
-      {/* Bottom Nav CTA */}
       <BottomNav />
     </div>
   );
 };
 
-export default NLP1Page;e;
+export default NLP1Page;
