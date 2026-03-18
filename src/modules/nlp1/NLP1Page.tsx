@@ -7,27 +7,16 @@ import WhoForSection from "./components/WhoForSection";
 import NLP1CTASection from "./components/NLP1CTASection";
 import "./styles/nlp1-theme.css";
 
-// Reusable function for Lead tracking
-const trackLead = (e) => {
-  const target = e.currentTarget;
-
-  // Prevent duplicate firing
-  if (!target.dataset.leadFired) {
-    target.dataset.leadFired = "true";
-    console.log("CTA Clicked ✅", target);
-
-    // Fire Facebook Pixel Lead event
-    if (window.fbq) window.fbq("track", "Lead");
-
-    // If bottom nav button, open Razorpay
-    if (target.dataset.razorpay) {
-      window.open("https://rzp.io/rzp/u2YpQe7", "_blank");
-    }
-  }
-};
-
 // BottomNav component (UI unchanged)
 const BottomNav = () => {
+  const handleClick = () => {
+    console.log("CTA Clicked ✅ (Bottom Nav)");
+    // ❌ Removed fbq here — global handler in NLP1Page covers this
+    setTimeout(() => {
+      window.open("https://rzp.io/rzp/u2YpQe7", "_blank");
+    }, 500);
+  };
+
   return (
     <div id="nlp1-bottom-nav">
       <div className="bottom-nav-container">
@@ -67,8 +56,7 @@ const BottomNav = () => {
                 Special Launch Offer
               </div>
             </div>
-            {/* Attach trackLead directly to button */}
-            <button className="cta-button" data-razorpay onClick={trackLead}>
+            <button className="cta-button" onClick={handleClick}>
               Book Your Zoom Call Now
             </button>
           </div>
@@ -79,19 +67,34 @@ const BottomNav = () => {
 };
 
 const NLP1Page = () => {
+  useEffect(() => {
+    // Global click handler for ALL CTA buttons — single source of truth for Lead tracking
+    const handleAllCTA = (e) => {
+      const target = e.target;
+
+      if (target && (target.closest(".cta-button") || target.dataset.trackLead === "true")) {
+        console.log("CTA Clicked ✅", target);
+        if (window.fbq) {
+          window.fbq("track", "Lead");
+        }
+      }
+    };
+
+    document.addEventListener("click", handleAllCTA);
+
+    return () => {
+      document.removeEventListener("click", handleAllCTA);
+    };
+  }, []);
+
   return (
     <div className="nlp1-module min-h-screen bg-background overflow-x-hidden pb-24">
-      {/* Top CTA button in HeroSection */}
-      <HeroSection trackLead={trackLead} />
-
-      {/* Middle CTA button in NLP1CTASection or IntroSection */}
-      <IntroSection trackLead={trackLead} />
+      <HeroSection />
+      <IntroSection />
       <WhatWeBuildSection />
       <HowItWorksSection />
       <WhoForSection />
-      <NLP1CTASection trackLead={trackLead} />
-
-      {/* Bottom CTA */}
+      <NLP1CTASection />
       <BottomNav />
     </div>
   );
