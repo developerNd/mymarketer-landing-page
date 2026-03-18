@@ -44,18 +44,17 @@ const NLP1CTASection = () => {
                         No Random Pitch. Only Strategy.
                     </p>
 
-                    <motion.a
-                        href="https://rzp.io/rzp/u2YpQe7"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    {/* ✅ Only change: added cta-button class + onClick, kept motion animations */}
+                    <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.98 }}
-                        className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-gold text-primary-foreground font-body font-bold text-lg rounded-xl shadow-gold glow-gold"
+                        className="cta-button group inline-flex items-center gap-3 px-10 py-5 bg-gradient-gold text-primary-foreground font-body font-bold text-lg rounded-xl shadow-gold glow-gold"
+                        onClick={() => window.open("https://rzp.io/rzp/u2YpQe7", "_blank")}
                     >
                         <Phone className="w-5 h-5" />
                         Book Your Zoom Call Now
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </motion.a>
+                    </motion.button>
 
                     <div className="flex items-center justify-center gap-2 mt-6 text-muted-foreground">
                         <Clock className="w-4 h-4" />
