@@ -25,11 +25,8 @@ const NLP1Page = () => {
                                 Special Launch Offer
                             </div>
                         </div>
-                        <button 
-                            class="cta-button"
-                           onclick="window.fbq('track', 'Lead'); window.open('https://rzp.io/rzp/u2YpQe7', '_blank', 'noopener,noreferrer')"
-                        >
-                            Book Your Zoom Call Now
+                        <button class="cta-button">
+                           Book Your Zoom Call Now
                         </button>
                     </div>
                 </div>
@@ -37,6 +34,17 @@ const NLP1Page = () => {
         `;
 
         document.body.appendChild(bottomNavElement);
+        setTimeout(() => {
+          const btn = document.querySelector('.cta-button');
+          if (btn) {
+            btn.addEventListener('click', () => {
+              if (window.fbq) {
+                window.fbq('track', 'Lead');
+              }
+              window.open('https://rzp.io/rzp/u2YpQe7', '_blank', 'noopener,noreferrer');
+            });
+         }
+        }, 1000);
 
         // Cleanup function
         return () => {
