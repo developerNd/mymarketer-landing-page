@@ -1,120 +1,84 @@
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/premium-button';
 import { AnimatedSection } from '@/components/ui/animated-section';
-import { CheckCircle, Calendar, Clock, Users, Star } from 'lucide-react';
-import { trackPurchase, trackLead, trackEvent } from '@/lib/facebook-tracking';
+import { CheckCircle, Calendar, Clock } from 'lucide-react';
+import { trackPurchase, trackEvent } from '@/lib/facebook-tracking';
 
 const EngThankYou = () => {
+
     useEffect(() => {
-        // Track standard purchase event
+        // ✅ Lead event (ONLY ONCE)
+        if (window.fbq) {
+            window.fbq('track', 'Lead');
+        }
+
+        // ✅ Purchase event
         trackPurchase({}, {
             content_name: 'English Strategy Session',
             content_category: 'Coaching',
-            value: 0.00,
+            value: 99.00,
             currency: 'INR'
         });
 
-        // Track specifically named event for the user's custom conversion
+        // ✅ Custom purchase event (optional)
         trackEvent('Purchase NM', {}, {
-            value: 0.00,
+            value: 99.00,
             currency: 'INR'
         });
+
+        console.log("Lead + Purchase Fired ✅");
+
     }, []);
 
     const handleYesClick = () => {
-        trackLead({}, {
-            content_name: 'Enagic Owner Meeting Booking (English)',
-            content_category: 'Coaching',
-            meeting_type: '60 min'
-        });
         window.open('https://tools.aiwhatsapp.in/calender/329/565/60%20min', '_blank');
     };
 
     const handleNoClick = () => {
-        trackLead({}, {
-            content_name: 'Non-Enagic Owner Meeting Booking (English)',
-            content_category: 'Coaching',
-            meeting_type: '30 min'
-        });
-        // Keeping the original 'No' link from ThankYouCoach as no specific 'No' link was provided for English
         window.open('https://tools.aiwhatsapp.in/calender/329/166/30%20min', '_blank');
     };
 
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-8">
-            {/* Background Elements - Enhanced */}
-            <div className="absolute inset-0 bg-gradient-hero opacity-90" />
-            <div className="absolute top-10 left-4 md:top-20 md:left-10 w-48 h-48 md:w-72 md:h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
-            <div className="absolute bottom-10 right-4 md:bottom-20 md:right-10 w-64 h-64 md:w-96 md:h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
 
-            {/* Main content */}
+            <div className="absolute inset-0 bg-gradient-hero opacity-90" />
+
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="text-center max-w-5xl mx-auto">
-                    {/* Success Icon */}
+
                     <AnimatedSection animation="scale-in">
                         <div className="flex justify-center mb-6">
-                            <div className="glass p-6 rounded-full bg-gradient-accent/20">
-                                <CheckCircle className="w-16 h-16 md:w-20 md:h-20 text-accent animate-pulse" />
+                            <div className="glass p-6 rounded-full">
+                                <CheckCircle className="w-16 h-16 text-accent" />
                             </div>
                         </div>
                     </AnimatedSection>
 
-                    {/* Congratulations heading */}
                     <AnimatedSection animation="fade-up">
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-display font-bold leading-tight mb-6">
-                            <span className="gradient-text">Congratulations!</span>
+                        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                            🎉 Congratulations!
                         </h1>
                     </AnimatedSection>
 
-                    {/* Enhanced Subheadings */}
-                    <AnimatedSection animation="fade-up" delay={200}>
-                        <div className="text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-8 space-y-3">
-                            <p className="flex items-center justify-center gap-2">
-                                <CheckCircle className="w-5 h-5 text-accent" />
-                                Payment Successful - You're All Set!
-                            </p>
-                            <p className="flex items-center justify-center gap-2">
-                                <Calendar className="w-5 h-5 text-primary" />
-                                Ready to Schedule Your Strategy Session
-                            </p>
-                        </div>
+                    <AnimatedSection animation="fade-up">
+                        <p className="text-lg mb-8">
+                            Payment Successful - You're All Set!
+                        </p>
                     </AnimatedSection>
 
-                    {/* Book Meeting Section */}
-                    <AnimatedSection animation="fade-up" delay={400}>
-                        <div className="mb-12">
-                            <div className="glass p-6 md:p-8 rounded-2xl mb-8 bg-gradient-to-r from-primary/5 to-accent/5">
-                                <h2 className="text-2xl sm:text-3xl lg:text-5xl font-display font-bold mb-4">
-                                    <span className="gradient-accent-text">Are you an Enagic Business Owner?</span>
-                                </h2>
-                                <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6">
-                                    Please select your option to schedule the appropriate meeting
-                                </p>
+                    <AnimatedSection animation="fade-up">
+                        <div className="flex justify-center gap-4 flex-wrap">
 
-                                {/* Yes/No Buttons */}
-                                <div className="flex justify-center gap-4 flex-wrap">
-                                    <Button
-                                        variant="hero"
-                                        size="xl"
-                                        className="group min-w-[200px]"
-                                        onClick={handleYesClick}
-                                    >
-                                        <Calendar className="mr-2 w-5 h-5" />
-                                        Yes
-                                        <Clock className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                    </Button>
-                                    <Button
-                                        variant="hero"
-                                        size="xl"
-                                        className="group min-w-[200px]"
-                                        onClick={handleNoClick}
-                                    >
-                                        <Calendar className="mr-2 w-5 h-5" />
-                                        No
-                                        <Clock className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                    </Button>
-                                </div>
-                            </div>
+                            <Button onClick={handleYesClick}>
+                                <Calendar className="mr-2" />
+                                Yes
+                            </Button>
+
+                            <Button onClick={handleNoClick}>
+                                <Calendar className="mr-2" />
+                                No
+                            </Button>
+
                         </div>
                     </AnimatedSection>
 

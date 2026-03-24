@@ -53,15 +53,14 @@ const HeroSection = () => {
                     transition={{ duration: 0.8, delay: 0.45 }}
                     className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
                 >
-                    <a
-                        href="https://rzp.io/rzp/u2YpQe7"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-gold text-primary-foreground font-body font-bold text-lg rounded-lg shadow-gold animate-pulse-gold hover:scale-105 transition-transform"
+                    {/* ✅ Only change: added cta-button class + onClick, removed fbq from here */}
+                    <button
+                        className="cta-button group inline-flex items-center gap-3 px-8 py-4 bg-gradient-gold text-primary-foreground font-body font-bold text-lg rounded-lg shadow-gold animate-pulse-gold hover:scale-105 transition-transform"
+                        onClick={() => window.open("https://rzp.io/rzp/u2YpQe7", "_blank")}
                     >
                         Book Your Zoom Call
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </button>
                 </motion.div>
 
                 <motion.div

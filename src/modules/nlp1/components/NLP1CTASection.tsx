@@ -1,70 +1,109 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Phone, Clock, ShieldCheck } from "lucide-react";
+import { useEffect } from "react";
+import HeroSection from "./components/HeroSection";
+import IntroSection from "./components/IntroSection";
+import WhatWeBuildSection from "./components/WhatWeBuildSection";
+import HowItWorksSection from "./components/HowItWorksSection";
+import WhoForSection from "./components/WhoForSection";
+import NLP1CTASection from "./components/NLP1CTASection";
+import "./styles/nlp1-theme.css";
 
-const callPoints = [
-    "Analyse Your Current Situation",
-    "Identify Your Sales Bottleneck",
-    "Show You The Exact Growth Roadmap",
-    "Decide If We Are A Good Fit",
-];
+const BottomNav = () => {
+  const handleClick = () => {
+    console.log("CTA Clicked ✅ (Bottom Nav)");
+    setTimeout(() => {
+      window.open("https://rzp.io/rzp/u2YpQe7", "_blank");
+    }, 500);
+  };
 
-const NLP1CTASection = () => {
-    return (
-        <section id="book-call" className="py-24 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background" />
-            <div className="container mx-auto px-4 max-w-4xl relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="bg-gradient-card rounded-2xl p-8 md:p-12 border border-gold/20 shadow-gold text-center"
+  return (
+    <div id="nlp1-bottom-nav">
+      <div className="bottom-nav-container">
+        <div className="bottom-nav-inner">
+          <div className="bottom-nav-flex">
+            <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <span
+                  className="price-label"
+                  style={{
+                    fontSize: "26px",
+                    fontWeight: 900,
+                    color: "#DAA520",
+                    fontFamily: "'Playfair Display', serif",
+                    letterSpacing: "-0.02em",
+                  }}
                 >
-                    <span className="text-primary font-body font-semibold tracking-wider uppercase text-sm">
-                        🚀 Ready To Build A Real System?
-                    </span>
-                    <h2 className="text-3xl md:text-5xl font-display font-bold mt-4 mb-3">
-                        Book Your{" "}
-                        <span className="text-gradient-gold">1:1 Growth Strategy</span>{" "}
-                        Zoom Call
-                    </h2>
-                    <p className="text-muted-foreground font-body mb-8 text-lg">
-                        We Are Currently Inviting Serious Enagic Distributors
-                    </p>
-
-                    <div className="grid sm:grid-cols-2 gap-4 max-w-xl mx-auto mb-10 text-left">
-                        {callPoints.map((point, i) => (
-                            <div key={i} className="flex items-center gap-3">
-                                <ShieldCheck className="w-5 h-5 text-primary flex-shrink-0" />
-                                <span className="text-foreground font-body text-sm">{point}</span>
-                            </div>
-                        ))}
-                    </div>
-
-                    <p className="text-muted-foreground font-body mb-8 italic">
-                        No Random Pitch. Only Strategy.
-                    </p>
-
-                    <motion.a
-                        href="https://rzp.io/rzp/u2YpQe7"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-gold text-primary-foreground font-body font-bold text-lg rounded-xl shadow-gold glow-gold"
-                    >
-                        <Phone className="w-5 h-5" />
-                        Book Your Zoom Call Now
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </motion.a>
-
-                    <div className="flex items-center justify-center gap-2 mt-6 text-muted-foreground">
-                        <Clock className="w-4 h-4" />
-                        <span className="text-sm font-body">Limited Slots Per Week · Serious Distributors Only</span>
-                    </div>
-                </motion.div>
+                  ₹99
+                </span>
+                <span
+                  style={{ fontSize: "16px", color: "#9ca3af", textDecoration: "line-through", opacity: 0.6 }}
+                >
+                  ₹4,999
+                </span>
+              </div>
+              <div
+                className="offer-text"
+                style={{
+                  fontSize: "12px",
+                  color: "#e5e7eb",
+                  fontWeight: 600,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  opacity: 0.9,
+                }}
+              >
+                Special Launch Offer
+              </div>
             </div>
-        </section>
-    );
+            <button className="cta-button" onClick={handleClick}>
+              Book Your Zoom Call Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
-export default NLP1CTASection;
+const NLP1Page = () => {
+  useEffect(() => {
+    let isFiring = false; // ✅ Guard flag
+
+    const handleAllCTA = (e) => {
+      const target = e.target;
+
+      if (target && (target.closest(".cta-button") || target.dataset.trackLead === "true")) {
+        if (isFiring) return; // 🚫 Block duplicate
+        isFiring = true;
+
+        console.log("CTA Clicked ✅", target);
+        if (window.fbq) {
+          window.fbq("track", "Lead");
+        }
+
+        setTimeout(() => {
+          isFiring = false; // 🔓 Reset after 1 second
+        }, 1000);
+      }
+    };
+
+    document.addEventListener("click", handleAllCTA);
+
+    return () => {
+      document.removeEventListener("click", handleAllCTA);
+    };
+  }, []);
+
+  return (
+    <div className="nlp1-module min-h-screen bg-background overflow-x-hidden pb-24">
+      <HeroSection />
+      <IntroSection />
+      <WhatWeBuildSection />
+      <HowItWorksSection />
+      <WhoForSection />
+      <NLP1CTASection />
+      <BottomNav />
+    </div>
+  );
+};
+
+export default NLP1Page;
