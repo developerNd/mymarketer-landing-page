@@ -82,6 +82,7 @@ const ThankYouCoach = () => {
           {/* Book Meeting Section */}
           <AnimatedSection animation="fade-up" delay={400}>
             <div className="mb-12">
+              {/* 
               <div className="glass p-6 md:p-8 rounded-2xl mb-8 bg-gradient-to-r from-primary/5 to-accent/5">
                 <h2 className="text-2xl sm:text-3xl lg:text-5xl font-display font-bold mb-4">
                   <span className="gradient-accent-text">Are you an Enagic Business Owner?</span>
@@ -90,7 +91,6 @@ const ThankYouCoach = () => {
                   Please select your option to schedule the appropriate meeting
                 </p>
 
-                {/* Yes/No Buttons */}
                 <div className="flex justify-center gap-4 flex-wrap">
                   <Button
                     variant="hero"
@@ -113,6 +113,27 @@ const ThankYouCoach = () => {
                     <Clock className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
+              </div> 
+              */}
+
+              {/* Added Book Now Button */}
+              <div className="flex justify-center">
+                <Button
+                  variant="hero"
+                  size="xl"
+                  className="group min-w-[300px]"
+                  onClick={() => {
+                    trackLead({}, {
+                      content_name: 'Coach Strategy Session Booking',
+                      content_category: 'Coaching'
+                    });
+                    window.open('https://tools.aiwhatsapp.in/calender/329/166/30%20min', '_blank');
+                  }}
+                >
+                  <Calendar className="mr-2 w-5 h-5" />
+                  Book Now
+                  <Clock className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
               </div>
             </div>
           </AnimatedSection>
