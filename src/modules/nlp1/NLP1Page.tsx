@@ -9,42 +9,24 @@ import { useEffect } from "react";
 
 const NLP1Page = () => {
     useEffect(() => {
-        const bottomNavElement = document.createElement('div');
-        bottomNavElement.id = 'nlp1-bottom-nav';
-        bottomNavElement.innerHTML = `
-            <div class="bottom-nav-container">
-                <div class="bottom-nav-inner">
-                    <div class="bottom-nav-flex">
-                        <div style="display: flex; flex-direction: column; gap: 2px;">
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <span class="price-label" style="font-size: 26px; font-weight: 900; color: #DAA520;">₹99</span>
-                                <span style="font-size: 16px; color: #9ca3af; text-decoration: line-through; opacity: 0.6;">₹4,999</span>
-                            </div>
-                            <div style="font-size: 12px; color: #e5e7eb; font-weight: 600;">
-                                Special Launch Offer
-                            </div>
-                        </div>
-
-                        <!-- ✅ ONLY redirect (NO Lead event here) -->
-                        <button 
-                            class="cta-button"
-                            onclick="window.open('https://rzp.io/rzp/u2YpQe7', '_blank', 'noopener,noreferrer')"
-                        >
-                            Book Your Zoom Call Now
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-        `;
-
-        document.body.appendChild(bottomNavElement);
-
-        return () => {
-            const existingNav = document.getElementById('nlp1-bottom-nav');
-            if (existingNav) {
-                document.body.removeChild(existingNav);
+        let isFiring = false;
+        const handleAllCTA = (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+            if (target && (target.closest(".cta-button") || target.dataset.trackLead === "true")) {
+                if (isFiring) return;
+                isFiring = true;
+                console.log("CTA Clicked (Lead Event) ✅", target);
+                const win = window as any;
+                if (win.fbq) {
+                    win.fbq("track", "Lead");
+                }
+                setTimeout(() => { isFiring = false; }, 1000);
             }
+        };
+
+        document.addEventListener("click", handleAllCTA);
+        return () => {
+            document.removeEventListener("click", handleAllCTA);
         };
     }, []);
 

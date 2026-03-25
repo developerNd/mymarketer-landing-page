@@ -1,15 +1,14 @@
-import { useEffect } from "react";
-import HeroSection from "./components/HeroSection";
-import IntroSection from "./components/IntroSection";
-import WhatWeBuildSection from "./components/WhatWeBuildSection";
-import HowItWorksSection from "./components/HowItWorksSection";
-import WhoForSection from "./components/WhoForSection";
-import NLP1CTASection from "./components/NLP1CTASection";
-import "./styles/nlp1-theme.css";
+import { motion } from "framer-motion";
+import { ArrowRight, Zap } from "lucide-react";
+import "../styles/nlp1-theme.css";
 
 const BottomNav = () => {
   const handleClick = () => {
     console.log("CTA Clicked ✅ (Bottom Nav)");
+    const win = window as any;
+    if (win.fbq) {
+      win.fbq("track", "Lead");
+    }
     setTimeout(() => {
       window.open("https://rzp.io/rzp/u2YpQe7", "_blank");
     }, 500);
@@ -64,46 +63,45 @@ const BottomNav = () => {
   );
 };
 
-const NLP1Page = () => {
-  useEffect(() => {
-    let isFiring = false; // ✅ Guard flag
-
-    const handleAllCTA = (e) => {
-      const target = e.target;
-
-      if (target && (target.closest(".cta-button") || target.dataset.trackLead === "true")) {
-        if (isFiring) return; // 🚫 Block duplicate
-        isFiring = true;
-
-        console.log("CTA Clicked ✅", target);
-        if (window.fbq) {
-          window.fbq("track", "Lead");
+const NLP1CTASection = () => {
+    const handleClick = () => {
+        const win = window as any;
+        if (win.fbq) {
+            win.fbq("track", "Lead");
         }
-
-        setTimeout(() => {
-          isFiring = false; // 🔓 Reset after 1 second
-        }, 1000);
-      }
+        window.open("https://rzp.io/rzp/u2YpQe7", "_blank");
     };
 
-    document.addEventListener("click", handleAllCTA);
-
-    return () => {
-      document.removeEventListener("click", handleAllCTA);
-    };
-  }, []);
-
-  return (
-    <div className="nlp1-module min-h-screen bg-background overflow-x-hidden pb-24">
-      <HeroSection />
-      <IntroSection />
-      <WhatWeBuildSection />
-      <HowItWorksSection />
-      <WhoForSection />
-      <NLP1CTASection />
-      <BottomNav />
-    </div>
-  );
+    return (
+        <>
+            <section className="py-24 relative overflow-hidden">
+                <div className="container mx-auto px-4 text-center relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="max-w-4xl mx-auto glass border border-gold/30 p-12 rounded-3xl"
+                    >
+                        <Zap className="w-12 h-12 text-primary mx-auto mb-6" />
+                        <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
+                            Ready to Build Your <span className="text-gradient-gold">Enagic Empire?</span>
+                        </h2>
+                        <p className="text-xl text-muted-foreground mb-12 font-body">
+                            Stop chasing friends and family. Start attracting high-quality prospects today.
+                        </p>
+                        <button 
+                            className="cta-button group inline-flex items-center gap-3 px-10 py-5 bg-gradient-gold text-primary-foreground font-bold text-xl rounded-xl shadow-gold hover:scale-105 transition-all"
+                            onClick={handleClick}
+                        >
+                            Yes! I'm Ready to Scale
+                            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                        </button>
+                    </motion.div>
+                </div>
+            </section>
+            <BottomNav />
+        </>
+    );
 };
 
-export default NLP1Page;
+export default NLP1CTASection;

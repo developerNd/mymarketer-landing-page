@@ -56,9 +56,9 @@ export const CTASection = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-                <Button 
-                  variant="hero" 
-                  size="xl" 
+                <Button
+                  variant="hero"
+                  size="xl"
                   className="group animate-glow"
                   onClick={() => {
                     // Only redirect to payment page
@@ -102,5 +102,4 @@ export const CTASection = () => {
       </div>
     </section>
   );
-};
 };
